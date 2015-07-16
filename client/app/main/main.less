@@ -3,6 +3,24 @@
 @bodytext: #464646;
 @darkpink: #9e776a;
 
+@font-face {
+  font-family: 'LucidaHandwriting-Italic';
+  src: url('../assets/fonts/LucidaHandwriting-Italic.eot?#iefix') format('embedded-opentype'),  url('../assets/fonts/LucidaHandwriting-Italic.woff') format('woff'), url('../assets/fonts/LucidaHandwriting-Italic.ttf')  format('truetype'), url('../assets/fonts/LucidaHandwriting-Italic.svg#LucidaHandwriting-Italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+    font-family:'LucidaHandwriting-Italic';
+    color:@basegreen;
+    text-shadow: 2px 1px 0px rgba(76, 129, 88, 1);
+    padding-bottom: .75em;
+}
+
+span {
+    font-weight: bold;
+    font-family: 'HelveticaNeue';
+}
 
 .thing-form {
   margin: 20px 0;
@@ -37,6 +55,7 @@
 
 html {
     font-size: 14px;
+    overflow-x: hidden;
 }
 
 body {
@@ -192,6 +211,7 @@ ul {
 
 .jukebox {
  margin-top: 10em;
+ width: 30em;
 }
 
 .about-text {
@@ -210,4 +230,24 @@ ul {
     margin-left: 3em;
     height: 130em;
     margin-top: 10em;
+}
+
+.mic {
+    margin-top: 10em;
+    width: 30em;
+}
+
+.contact-text {
+    margin-top: 10em;
+    padding-right: 3em;
+}
+
+.footer {
+    margin-top: 0;
+    height: 10em;
+    background: rgba(117,182,146,.5);
+    position: relative;
+    width: 100%;
+    bottom:0;
+    border-top: none;
 }
