@@ -5,9 +5,10 @@ angular.module('expressbandApp')
     $scope.awesomeThings = [];
   
 
-    $http.get('/api/showdates').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
+    $http.get('/api/showdates').success(function(dates) {
+      $scope.showdates = dates;
     });
+
 
     // $scope.addThing = function() {
     //   if($scope.newThing === '') {
@@ -23,9 +24,9 @@ angular.module('expressbandApp')
     //   $scope.newThing = '';
     // };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
+    // $scope.deleteThing = function(thing) {
+    //   $http.delete('/api/things/' + thing._id);
+    // };
 
     console.log("is the user logged in?", Auth.isLoggedIn());
      console.log("is the user and admin?", Auth.isAdmin());

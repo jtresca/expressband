@@ -11,10 +11,6 @@ angular.module('expressbandApp')
       'link': '#section-2'
     },
     {
-      'title': 'Mailing List',
-      'link': '#section-5'
-    },
-    {
       'title': 'See Us Live',
       'link': '#section-3'
     },
@@ -45,4 +41,4 @@ angular.module('expressbandApp')
     //   console && console.log('You just scrolled to the top!');
     // });
 
-  }).value('duScrollOffset', 150);
+  }).value('duScrollOffset', 50);

@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/expressband-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };

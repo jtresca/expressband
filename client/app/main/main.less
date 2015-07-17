@@ -3,6 +3,8 @@
 @bodytext: #464646;
 @darkpink: #9e776a;
 
+
+
 @font-face {
   font-family: 'LucidaHandwriting-Italic';
   src: url('../assets/fonts/LucidaHandwriting-Italic.eot?#iefix') format('embedded-opentype'),  url('../assets/fonts/LucidaHandwriting-Italic.woff') format('woff'), url('../assets/fonts/LucidaHandwriting-Italic.ttf')  format('truetype'), url('../assets/fonts/LucidaHandwriting-Italic.svg#LucidaHandwriting-Italic') format('svg');
@@ -17,6 +19,11 @@ h1 {
     padding-bottom: .75em;
 }
 
+h3 {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 400;
+}
+
 span {
     font-weight: bold;
     font-family: 'HelveticaNeue';
@@ -29,6 +36,10 @@ textarea {
     border-color: @basegreen;
     width: 100%;
     height: 20em;
+}
+
+hr {
+    border-color: @basegreen;
 }
 
 .thing-form {
@@ -137,14 +148,14 @@ ul {
 }
 
 .train {
-     width: 42em;
+     width: 40em;
 }
 
 .welcome {
     position:absolute;
     right: 3.5em;
     top:1.5em;
-    width: 30em;
+    width: 27em;
     opacity: .60;
 }
 .checkers {
@@ -215,6 +226,7 @@ ul {
 .car {
     margin-top: 10em;
     position:absolute;
+    width: 45em;
     right: 0;
 }
 
@@ -227,7 +239,7 @@ ul {
 
 .jukebox {
  margin-top: 10em;
- width: 30em;
+ width: 27em;
 }
 
 .about-text {
@@ -236,7 +248,7 @@ ul {
 }
 
 .guitar {
-    max-width: 40em;
+    width: 35em;
     position: absolute;
     right: 6em;
     margin-top: 10em;
@@ -246,6 +258,11 @@ ul {
     margin-left: 3em;
     height: 130em;
     margin-top: 10em;
+}
+
+.show-details {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; 
+   font-weight: lighter !important;
 }
 
 .mic {
@@ -262,7 +279,6 @@ ul {
     margin-top: 0;
     height: 10em;
     background: rgba(117,182,146,.5);
-    position: relative;
     width: 100%;
     bottom:0;
     border-top: none;

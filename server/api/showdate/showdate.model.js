@@ -5,7 +5,10 @@ var mongoose = require('mongoose'),
 
 var ShowdateSchema = new Schema({
   venue: String,
-  address: String,
+  street: String,
+  town: String,
+  state: { type: String, default: "NY" },
+  zip: Number,
   date: Date,
   time: String,
   phone: String,

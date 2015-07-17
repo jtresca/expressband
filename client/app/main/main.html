@@ -18,7 +18,7 @@
     </div>
    </section>
 
-   <section class="row" id="section-5">
+   <section class="row" offset="30" id="section-5">
     <div class="col-sm-7">
       <img class="joinmailimg" src="../assets/images/joinmail.svg" alt="">
     </div>
@@ -93,9 +93,18 @@
     <div class="col-sm-4">
         <div class="show-text">
          <h1>See Us Live</h1>
-          <p>Thanks for stopping by the web site of Long Island's premiere oldies dance band. At it's core, "Express" is a six piece band consisting of vocals, guitar, keyboard, percussion, sax and drums. We specialize in music covering the 40's, 50's, 60's, 70's, 80's and 90's.</p>
-
-          <p>Express has performed with such great groups as, "The Capris", "The Passions", "The Mystics", "Demensions", "Dion and the Belmonts", "The Drifters", and "The Coasters." Click around and discover how we can accomodate your next occassion.</p>
+          <div ng-repeat="showdate in showdates">
+            <h3>{{ showdate.venue}}</h3>
+            <span>{{showdate.date | date:'EEEE MMM d, y'}}</span><br>
+            <span>{{showdate.time}}</span>
+            <p class="show-details"><span>{{showdate.address}}</span><br>
+            <span>{{showdate.street}}</span><br>
+            <span>{{showdate.town}}</span><br>
+            <span>{{showdate.state}} {{showdate.zip}}</span><br>
+            <span>{{showdate.phone}}</span><br>
+            <span>{{showdate.notes}}</span><br></p>
+            <hr>
+          </div>
         </div>
     </div>
     <div class="col-sm-8">
@@ -127,7 +136,7 @@
 
 
   <footer class="footer">
-    <div class="container">
+    <div>
         <p>Copyright &#169; 2015 Express Band All rights reserved.</p>
         <p>Weddings &#8226; Private Parties &#8226; Dances &#8226; Corporate Events &#8226; Reunions</p>
     </div>

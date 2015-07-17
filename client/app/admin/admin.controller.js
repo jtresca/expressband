@@ -32,7 +32,9 @@ angular.module('expressbandApp')
       }
       $http.post('/api/showdates', 
         { venue: $scope.newThing.venue, 
-          address: $scope.newThing.address, 
+          street: $scope.newThing.street, 
+          town: $scope.newThing.town,
+          zip: $scope.newThing.zip,
           date: $scope.newThing.date, 
           time: $scope.newThing.time,
           phone: $scope.newThing.phone, 
