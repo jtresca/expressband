@@ -22,6 +22,15 @@ span {
     font-family: 'HelveticaNeue';
 }
 
+textarea {
+    background-color: none !important;
+    background: none;
+    margin-top: 1em;
+    border-color: @basegreen;
+    width: 100%;
+    height: 20em;
+}
+
 .thing-form {
   margin: 20px 0;
 }
@@ -87,10 +96,17 @@ nav {
     padding-top: 14em
 }
 
- .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { 
-    background:rgba(117,182,146,.8);
+//  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { 
+    
+// }
+a.active {
+    background:rgba(117,182,146,.8) !important;
+    color:black !important;
 }
 
+// .navbar-default .navbar-nav > li > a:focus {
+//     background:rgba(117,182,146,.8);
+// }
 
 ul {
     margin-left: 2.5em !important;
@@ -250,4 +266,8 @@ ul {
     width: 100%;
     bottom:0;
     border-top: none;
+}
+
+.contact_submit {
+    float: right;
 }

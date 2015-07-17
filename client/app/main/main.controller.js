@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('expressbandApp')
-  .controller('MainCtrl', function ($scope, $http, Auth, $modal, Modal) {
+  .controller('MainCtrl', function ($scope, $http, Auth) {
     $scope.awesomeThings = [];
   
 
