@@ -24,6 +24,7 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Mailinglist.create(req.body, function(err, mailinglist) {
     if(err) { return handleError(res, err); }
+    // console.log(mailinglist);
     return res.json(201, mailinglist);
   });
 };

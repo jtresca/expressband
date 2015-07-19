@@ -33,15 +33,24 @@
   <section class="row">
     <div class="col-sm-12">
       <div class="maillistform ">
-        <div class="col-sm-5">
-          <input class="expressinput" type="text" name="name" value="your name" placeholder="Name" ng-model="email.name"><br>
-        </div>
-        <div class="col-sm-5">
-          <input class="expressinput" type="text" name="name" value="your name" placeholder="Email" ng-model="email.name"><br>
-        </div>
-        <div class="col-sm-2">
-          <input class="expressbutton" type="submit" value="Send" ng-click="emailUser()">
-        </div>
+        <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
+          <div class="col-sm-5">
+            <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required><br>
+            <!--VALIDATE NAME-->
+             <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">You name is required.</p> 
+             <!--END VALIDATE NAME-->
+          </div>
+          <div class="col-sm-5">
+            <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="maillist.email" required><br>
+            <!--VALIDATE NAME-->
+             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">You email is invalid.</p> 
+             <!-- <p ng-show="mailingList.email.$invalid && mailingList.email.$touched " class="help-block">You email is required</p>  -->
+             <!--END VALIDATE NAME-->
+          </div>
+          <div class="col-sm-2">
+            <input class="expressbutton" ng-class="{ expressbuttonvalid : mailingList.$valid}" type="submit" value="Send" ng-disabled="mailingList.$invalid">
+          </div>
+        </form>
       </div>
     </div>
   </section>

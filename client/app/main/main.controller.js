@@ -2,8 +2,8 @@
 
 angular.module('expressbandApp')
   .controller('MainCtrl', function ($scope, $http, Auth) {
-    $scope.awesomeThings = [];
-  
+    // $scope.awesomeThings = [];
+    $scope.submitted = false;
 
     $http.get('/api/showdates').success(function(dates) {
       $scope.showdates = dates;
@@ -30,5 +30,16 @@ angular.module('expressbandApp')
 
     console.log("is the user logged in?", Auth.isLoggedIn());
      console.log("is the user and admin?", Auth.isAdmin());
+
+     $scope.listJoin = function(isValid) {
+        if (isValid && $scope.submitted == false) {
+            $http.post('/api/mailinglist',{ name: $scope.maillist.name , email: $scope.maillist.email});
+            $scope.submitted = true;
+            console.log("submitted to db!");
+        }
+        else {
+            console.log("sorry there was an error or you've already submitted");
+        }
+     }
       
   });
