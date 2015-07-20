@@ -1,72 +1,86 @@
+<!-- Navbar -->
+<div class="row">
+  <div class="col-xs-12">
+    <div ng-include="'components/navbar/navbar.html'">
+  <!-- Navigation bar injected here -->
+</div>
+  </div>
+</div>
 
-<div ng-include="'components/navbar/navbar.html'"></div>
-
-
+<!-- Main Content -->
 <div class="pagewrapper">
-  <section class="row">
-    <div class="col-sm-7">
-      <img class="train" src="../assets/images/train.png" alt="">
-    </div>
-    <div class="col-sm-5">
-      <img class="welcome" src="../assets/images/welcome.svg" alt="">
-    </div>
+  <section>
+    <div class="row">
+      <div class="col-xs-7">
+        <img class="train" src="../assets/images/train.png" alt="">
+      </div>
+      <div class="col-xs-5">
+        <img class="welcome" src="../assets/images/welcome.svg" alt="">
+      </div>
+    </div> <!-- End Row -->
   </section>
 
-   <section class="row">
-    <div class="col-sm-12">
-        <div class="checkers"></div>
+   <section>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="checkers">
+          <!-- Checker pattern here -->
+        </div>
+      </div>
     </div>
    </section>
 
    <section class="row" offset="30" id="section-5">
-    <div class="col-sm-7">
-      <img class="joinmailimg" src="../assets/images/joinmail.svg" alt="">
-    </div>
-    <div class="col-sm-5">
-      <div class="jointext">
-        <p>You can be notified when we're playing a show by signing up for our mailing list. </p>
+      <div class="row">
+        <div class="col-xs-7">
+          <img class="joinmailimg" src="../assets/images/joinmail.svg" alt="">
+        </div>
+        <div class="col-xs-5 jointext">
+          <p>You can be notified when we're playing a show by signing up for our mailing list. </p>
+          <p>Express always respects your privacy and we will <strong>NEVER</strong> sell your information to anyone for any reason.</p>
+        </div>
+      </div> <!-- End Row -->
+   </section>
 
-        <p>Express always respects your privacy and we will NEVER sell your information to anyone for any reason.</p>
-      </div>
-    </div>
-  </section>
-  <section class="row">
-    <div class="col-sm-12">
-      <div class="maillistform ">
-        <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
-          <div class="col-sm-5">
-            <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required><br>
-            <!--VALIDATE NAME-->
-             <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">You name is required.</p> 
-             <!--END VALIDATE NAME-->
-          </div>
-          <div class="col-sm-5">
+  <section>
+    <div class="row">
+        <div class="maillistform ">
+          <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
+            <div class="col-xs-5">
+              <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required><br>
+              <!--VALIDATE NAME-->
+               <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">Your name is required.</p> 
+               <!--END VALIDATE NAME-->
+            </div>
+          <div class="col-xs-5">
             <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="maillist.email" required><br>
             <!--VALIDATE NAME-->
-             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">You email is invalid.</p> 
+             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p> 
              <!-- <p ng-show="mailingList.email.$invalid && mailingList.email.$touched " class="help-block">You email is required</p>  -->
              <!--END VALIDATE NAME-->
           </div>
-          <div class="col-sm-2">
+          <div class="col-xs-2">
             <input class="expressbutton" ng-class="{ expressbuttonvalid : mailingList.$valid}" type="submit" value="Send" ng-disabled="mailingList.$invalid">
           </div>
         </form>
       </div>
-    </div>
+    </div> <!-- End Row -->
   </section>
 
-  <section class="row" id="section-1">
-    <div class="col-sm-4">
-        <div class="welcome-text">
-         <h1>Welcome</h1>
-          <p>Thanks for stopping by the web site of Long Island's premiere oldies dance band. At it's core, "Express" is a six piece band consisting of vocals, guitar, keyboard, percussion, sax and drums. We specialize in music covering the 40's, 50's, 60's, 70's, 80's and 90's.</p>
+  <section id="section-1">
+    <div class="row">
+      <div class="col-xs-4">
+          <div class="welcome-text">
+           <h1>Welcome</h1>
+            <p>Thanks for stopping by the web site of Long Island's premiere oldies dance band. At it's core, "Express" is a six piece band consisting of vocals, guitar, keyboard, percussion, sax and drums. We specialize in music covering the 40's, 50's, 60's, 70's, 80's and 90's.</p>
 
-          <p>Express has performed with such great groups as, "The Capris", "The Passions", "The Mystics", "Demensions", "Dion and the Belmonts", "The Drifters", and "The Coasters." Click around and discover how we can accomodate your next occassion.</p>
-        </div>
-    </div>
-    <div class="col-sm-8">
-        <img class="car" src="../assets/images/car.png" alt="">
-    </div>
+            <p>Express has performed with such great groups as, "The Capris", "The Passions", "The Mystics", "Demensions", "Dion and the Belmonts", "The Drifters", and "The Coasters." Click around and discover how we can accommodate your next occasion.</p>
+          </div>
+      </div>
+      <div class="col-xs-8">
+          <img class="car" src="../assets/images/car.png" alt="">
+      </div>
+    </div>  <!-- End Row -->
    </section>
 
      <section class="row" id="section-2">
@@ -150,4 +164,4 @@
         <p>Weddings &#8226; Private Parties &#8226; Dances &#8226; Corporate Events &#8226; Reunions</p>
     </div>
   </footer>
-</div>
+</div> <!-- .pagewrapper -->
