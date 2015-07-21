@@ -86,7 +86,7 @@
    <section id="section-2">
     <div class="row">
       <div class="col-xs-5">
-        <img class="jukebox" src="../assets/images/jukebox.png" alt="">
+        <img class="jukebox" src="../assets/images/jukebox.png" alt="JukeBox Image">
       </div>
       <div class="col-xs-7">
         <div class="about-text">
@@ -108,53 +108,62 @@
           <p><span>Don:</span> Lead Vocals / 2nd Tenor / Percussion</p>
           <p><span>Eddie:</span> Lead Vocals and Doo-wop Leads</p>
           <p><span>Richie B:</span> Sax/ Flute / Clarinet</p>
-      </div> 
-    </div>
-    </div>
+       </div> 
+      </div>
+    </div> <!-- End Row -->
    </section>
 
    <section class="row" id="section-3">
-    <div class="col-sm-4">
-        <div class="show-text">
-         <h1>See Us Live</h1>
-          <div ng-repeat="showdate in showdates">
-            <h3>{{ showdate.venue}}</h3>
-            <span>{{showdate.date | date:'EEEE MMM d, y'}}</span><br>
-            <span>{{showdate.time}}</span>
-            <p class="show-details"><span>{{showdate.address}}</span><br>
-            <span>{{showdate.street}}</span><br>
-            <span>{{showdate.town}}</span><br>
-            <span>{{showdate.state}} {{showdate.zip}}</span><br>
-            <span>{{showdate.phone}}</span><br>
-            <span>{{showdate.notes}}</span><br></p>
-            <hr>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="show-text">
+            <h1>See Us Live</h1>
+            <div ng-repeat="showdate in showdates">
+              <h3>{{ showdate.venue}}</h3>
+              <span>{{showdate.date | date:'EEEE MMM d, y'}}</span><br>
+              <span>{{showdate.time}}</span>
+              <p class="show-details"><span>{{showdate.address}}</span><br>
+              <span>{{showdate.street}}</span><br>
+              <span>{{showdate.town}}</span><br>
+              <span>{{showdate.state}} {{showdate.zip}}</span><br>
+              <span>{{showdate.phone}}</span><br>
+              <span>{{showdate.notes}}</span><br></p>
+              <hr>
           </div>
         </div>
     </div>
-    <div class="col-sm-8">
-        <img class="guitar" src="../assets/images/guitar.png" alt="">
+    <div class="col-xs-8">
+        <img class="guitar" src="../assets/images/guitar.png" alt="Guitar Image">
     </div>
+      </div> <!-- End Row -->
    </section>
 
-   <section class="row" id="section-4">
-    <div class="col-sm-6">
-      <img class="mic" src="../assets/images/mic.png" alt="">
-    </div>
-    <div class="col-sm-6">
-      <div class="contact-text">
-        <h1>Contact Us</h1>
-        <input class="expressinput" type="text" name="name" value="your name" placeholder="Name" ng-model="email.name"><br>
-        <input class="expressinput" type="text" name="name" value="your name" placeholder="Email" ng-model="email.name"><br>
-        <textarea rows="4" cols="50"> 
-        </textarea>
-        <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="emailUser()">
+  <section id="section-4">
+    <div class="row">
+      <div class="col-xs-6">
+        <img class="mic" src="../assets/images/mic.png" alt="">
       </div>
-    </div>
+      <div class="col-xs-6">
+        <div class="contact-text">
+          <h1>Contact Us</h1>
+          <input class="expressinput" type="text" name="name" value="your name" placeholder="Name" ng-model="email.name"><br>
+          <input class="expressinput" type="text" name="name" value="your name" placeholder="Email" ng-model="email.name"><br>
+          <textarea rows="4" cols="50" placeholder="type your message here"> 
+          </textarea>
+          <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="emailUser()">
+        </div>
+      </div>
+    </div> <!-- End Row --> 
   </section>
-   <section class="row">
-    <div class="col-sm-12">
-        <div class="checkers"></div>
-    </div>
+
+   <section>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="checkers">
+            <!-- Checkers Pattern -->
+          </div>
+        </div>
+      </div>
    </section>
 
 
