@@ -128,11 +128,12 @@
     <div class="col-sm-6">
       <div class="contact-text">
         <h1>Contact Us</h1>
-        <input class="expressinput" type="text" name="name" value="your name" placeholder="Name" ng-model="email.name"><br>
-        <input class="expressinput" type="text" name="name" value="your name" placeholder="Email" ng-model="email.name"><br>
-        <textarea rows="4" cols="50"> 
+        <input class="expressinput" type="text" name="name" value="your name" placeholder="Name" ng-model="uemail.name"><br>
+        <input class="expressinput" type="text" name="name" value="your name" placeholder="Email" ng-model="uemail.address"><br>
+        <input class="expressinput" type="text" name="name" value="your name" placeholder="Subject" ng-model="uemail.subject"><br>
+        <textarea rows="4" cols="50" ng-model="uemail.message"> 
         </textarea>
-        <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="emailUser()">
+        <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="userMail()">
       </div>
     </div>
   </section>

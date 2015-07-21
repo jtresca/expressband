@@ -14,6 +14,7 @@ module.exports = function(app) {
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
   app.use('/api/email', require('./api/nodemailer'));
+  app.use('/api/useremail', require('./api/usermailer'));
 
 
 
