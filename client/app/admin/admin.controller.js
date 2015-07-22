@@ -26,20 +26,20 @@ angular.module('expressbandApp')
       });
     };
 
-     $scope.addThing = function() {
-      if($scope.newThing === '') {
+     $scope.addShow = function() {
+      if($scope.newShow === '') {
         return;
       }
       $http.post('/api/showdates', 
-        { venue: $scope.newThing.venue, 
-          street: $scope.newThing.street, 
-          town: $scope.newThing.town,
-          zip: $scope.newThing.zip,
-          date: $scope.newThing.date, 
-          time: $scope.newThing.time,
-          phone: $scope.newThing.phone, 
-          notes: $scope.newThing.notes });
-       $scope.newThing = '';
+        { venue: $scope.newShow.venue, 
+          street: $scope.newShow.street, 
+          town: $scope.newShow.town,
+          zip: $scope.newShow.zip,
+          date: $scope.newShow.date, 
+          time: $scope.newShow.time,
+          phone: $scope.newShow.phone, 
+          notes: $scope.newShow.notes });
+       $scope.newShow = '';
     };
 
 

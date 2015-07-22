@@ -29,14 +29,13 @@ exports.usermailer = function(req, res, next) {
       to: 'Joe Tresca calactyte@gmail.com', // list of receivers
       // bcc: ['calactyte@gmail.com','calactyte@mailcity.com'],
       subject: req.body.subject, // Subject line
-      text: req.body.message, // plaintext body
-      html: '<b>'+req.body.message +'</b>' // html body
+      html: "reply-email: " + req.body.address+"<br><br>"+req.body.message // HTMLbody
   };
 
   // send mail with defined transport object
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
-          return console.log(error);
+          return res.json(error);
       }
       console.log('Message sent: ' + info.response);
       next();

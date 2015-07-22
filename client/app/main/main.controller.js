@@ -43,8 +43,13 @@ angular.module('expressbandApp')
      }
 
      $scope.userMail = function() {
-        $http.post('/api/useremail',{ address: $scope.uemail.address, name: $scope.uemail.name, subject: $scope.uemail.subject, message: $scope.uemail.message });
-        console.log("post succeeded-userMail");
+        $http.post('/api/useremail',{ address: $scope.uemail.address, name: $scope.uemail.name, subject: $scope.uemail.subject, message: $scope.uemail.message })
+        .success(function(data, status, headers, config) {
+            console.log("message sent successfully!");
+        })
+        .error(function(data, status, headers, config) {
+            console.log("That didn't work!", status);
+        });
      }
       
   });
