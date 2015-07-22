@@ -36,7 +36,8 @@ exports.usermailer = function(req, res, next) {
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
           // return console.log(error);
-          res.send(500,'errorthing');
+          console.log('ERROR!');
+         return res.send(500,{DUDE :'errorthing'});
       }
       console.log('Message sent: ' + info.response);
       next();

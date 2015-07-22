@@ -11,6 +11,8 @@ exports.index = function(req, res) {
   });
 };
 
+
+
 // Get a single mailinglist
 exports.show = function(req, res) {
   Mailinglist.findById(req.params.id, function (err, mailinglist) {
@@ -21,12 +23,25 @@ exports.show = function(req, res) {
 };
 
 // Creates a new mailinglist in the DB.
-exports.create = function(req, res) {
-  Mailinglist.create(req.body, function(err, mailinglist) {
-    if(err) { return handleError(res, err); }
-    // console.log(mailinglist);
-    return res.json(201, mailinglist);
+exports.create = function(req, res, next) {
+
+  Mailinglist.findOne({email: req.body.email }, function(err,obj) { 
+    console.log(req.body.email);
+    if(!obj) {
+      console.log("email doesn't exist!");
+       Mailinglist.create(req.body, function(err, mailinglist) {
+        if(err) { return handleError(res, err); }
+          // console.log(mailinglist);
+        return res.json(201, mailinglist);
+      });
+    } 
+    else {
+      console.log("email exists already!");
+      return res.send(500,{exists : true});
+      next();
+    }
   });
+ 
 };
 
 // Updates an existing mailinglist in the DB.
