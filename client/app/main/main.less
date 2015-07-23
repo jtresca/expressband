@@ -43,6 +43,7 @@ hr {
     border-color: @basegreen;
 }
 
+
 .thing-form {
   margin: 20px 0;
 }
@@ -88,7 +89,7 @@ nav {
     display: block;  
     width: 100%;
     height: 3em;
-    margin-top: 7em;
+    // margin-top: 7em;
     font-weight: 500;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 1.2em;
@@ -103,9 +104,8 @@ nav {
     background-repeat: repeat-x;
 }
 
-
 .pagewrapper {
-    padding-top: 14em
+    margin-top: 9em;
 }
 
 //  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { 
@@ -121,15 +121,17 @@ a.active {
 // }
 
 ul {
-    margin-left: 2.5em !important;
+    margin-top: 29px !important;
+    margin-right: 6px !important;
 }
 
 .navbar-header {
-
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 .navbar-brand {
-    margin: 1.5em 0 0 2em;
+    // margin: 1.5em 0 0 2em;
     width: 12em;
     height: 4em;
     background: url("../assets/images/express_logo.png");
@@ -138,26 +140,25 @@ ul {
 }
 
 .navbar-default { 
-    background: url("../assets/images/bg_paper.jpg")!important;
+    // background: url("../assets/images/bg_paper.jpg")!important;
+    background: url("../assets/images/nav_bg_paper.jpg");
     background-repeat: repeat-x;
     position:fixed;
     width: 100%;
 }
  .navbar-static-top {
     border:none;
-    height: 9.5em;
+    // height: 9.5em;
+    height: 6.5em;
 }
 
 .train {
-     width: 40em;
+     width: 100%;
 }
 
 .welcome {
-    position:absolute;
-    right: 3.5em;
-    top:1.5em;
-    width: 27em;
-    opacity: .60;
+    position: relative;
+    width: 100%;
 }
 .checkers {
     width: 100%;
@@ -296,4 +297,30 @@ ul {
 
 .help-block {
 
+}
+@media (max-width: 768px) {
+    .train {
+        display: none;
+    }
+    .welcome {
+          display: inherit;
+  opacity: 1;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-bottom: 1em;
+    }
+    .navbar-collapse {
+
+        background: url("../assets/images/nav_bg_paper.jpg");
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .train {
+        width: 100%;
+    }
+    .welcome {
+        opacity: 1;
+        width: 100%;
+    }
 }

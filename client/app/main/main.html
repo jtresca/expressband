@@ -1,80 +1,103 @@
 
-<div ng-include="'components/navbar/navbar.html'"></div>
+<!-- Navbar -->
+<div id="top-of-page"></div>
+<div class="row">
+  <div class="col-xs-12">
+    <div ng-include="'components/navbar/navbar.html'">
+  <!-- Navigation bar injected here -->
+</div>
+  </div>
+</div>
 
+<!-- Main Content -->
+<div class="pagewrapper">
+  <section>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <img class="train" src="../assets/images/train.png" alt="">
+      </div>
+      <div class="col-xs-12 col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5">
+        <img class="welcome" src="../assets/images/welcome.svg" alt="">
+      </div>
+    </div> <!-- End Row -->
 
-<div class="pagewrapper" id="section-0">
-  <section class="row">
-    <div class="col-sm-7">
-      <img class="train" src="../assets/images/train.png" alt="">
-    </div>
-    <div class="col-sm-5">
-      <img class="welcome" src="../assets/images/welcome.svg" alt="">
-    </div>
   </section>
 
-   <section class="row">
-    <div class="col-sm-12">
-        <div class="checkers"></div>
+   <section>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="checkers">
+          <!-- Checker pattern here -->
+        </div>
+      </div>
     </div>
    </section>
 
    <section class="row" offset="30" id="section-5">
-    <div class="col-sm-7">
-      <img class="joinmailimg" src="../assets/images/joinmail.svg" alt="">
-    </div>
-    <div class="col-sm-5">
-      <div class="jointext">
-        <p>You can be notified when we're playing a show by signing up for our mailing list. </p>
+      <div class="row">
+        <div class="col-xs-7">
+          <img class="joinmailimg" src="../assets/images/joinmail.svg" alt="">
+        </div>
+        <div class="col-xs-5 jointext">
+          <p>You can be notified when we're playing a show by signing up for our mailing list. </p>
+          <p>Express always respects your privacy and we will <strong>NEVER</strong> sell your information to anyone for any reason.</p>
+        </div>
+      </div> <!-- End Row -->
+   </section>
 
-        <p>Express always respects your privacy and we will NEVER sell your information to anyone for any reason.</p>
-      </div>
-    </div>
-  </section>
-  <section class="row">
-    <div class="col-sm-12">
-      <div class="maillistform ">
-        <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
-          <div class="col-sm-5">
-            <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required><br>
-            <!--VALIDATE NAME-->
-             <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">You name is required.</p> 
-             <!--END VALIDATE NAME-->
-          </div>
-          <div class="col-sm-5">
+  <section>
+    <div class="row">
+        <div class="maillistform ">
+          <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
+            <div class="col-xs-5">
+              <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required><br>
+              <!--VALIDATE NAME-->
+               <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">Your name is required.</p> 
+               <!--END VALIDATE NAME-->
+            </div>
+          <div class="col-xs-5">
             <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="maillist.email" required><br>
+
             <!--VALIDATE EMAIL-->
              <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p> 
              <p ng-show="emailExists" class="help-block">Your email is already in use.</p> 
+
+            <!--VALIDATE NAME-->
+             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p> 
+
              <!-- <p ng-show="mailingList.email.$invalid && mailingList.email.$touched " class="help-block">You email is required</p>  -->
              <!--END VALIDATE EMAIL-->
           </div>
-          <div class="col-sm-2">
+          <div class="col-xs-2">
             <input class="expressbutton" ng-class="{ expressbuttonvalid : mailingList.$valid}" type="submit" value="Send" ng-disabled="mailingList.$invalid">
           </div>
         </form>
       </div>
-    </div>
+    </div> <!-- End Row -->
   </section>
 
-  <section class="row" id="section-1">
-    <div class="col-sm-4">
-        <div class="welcome-text">
-         <h1>Welcome</h1>
-          <p>Thanks for stopping by the web site of Long Island's premiere oldies dance band. At it's core, "Express" is a six piece band consisting of vocals, guitar, keyboard, percussion, sax and drums. We specialize in music covering the 40's, 50's, 60's, 70's, 80's and 90's.</p>
+  <section id="section-1">
+    <div class="row">
+      <div class="col-xs-4">
+          <div class="welcome-text">
+           <h1>Welcome</h1>
+            <p>Thanks for stopping by the web site of Long Island's premiere oldies dance band. At it's core, "Express" is a six piece band consisting of vocals, guitar, keyboard, percussion, sax and drums. We specialize in music covering the 40's, 50's, 60's, 70's, 80's and 90's.</p>
 
-          <p>Express has performed with such great groups as, "The Capris", "The Passions", "The Mystics", "Demensions", "Dion and the Belmonts", "The Drifters", and "The Coasters." Click around and discover how we can accomodate your next occassion.</p>
-        </div>
-    </div>
-    <div class="col-sm-8">
-        <img class="car" src="../assets/images/car.png" alt="">
-    </div>
+            <p>Express has performed with such great groups as, "The Capris", "The Passions", "The Mystics", "Demensions", "Dion and the Belmonts", "The Drifters", and "The Coasters." Click around and discover how we can accommodate your next occasion.</p>
+          </div>
+      </div>
+      <div class="col-xs-8">
+          <img class="car" src="../assets/images/car.png" alt="">
+      </div>
+    </div>  <!-- End Row -->
    </section>
 
-     <section class="row" id="section-2">
-    <div class="col-sm-5">
-        <img class="jukebox" src="../assets/images/jukebox.png" alt="">
-    </div>
-    <div class="col-sm-7">
+   <section id="section-2">
+    <div class="row">
+      <div class="col-xs-5">
+        <img class="jukebox" src="../assets/images/jukebox.png" alt="JukeBox Image">
+      </div>
+      <div class="col-xs-7">
         <div class="about-text">
          <h1>About</h1>
           <p>"Express" established it's roots back in the mid 1950's with the oldest of the Dana Brothers and the group's leader, Frank Dana ( rhythm guitar, lead vocals, and falsetto), playing in the group "Rusty and the Rock-A-Tones."</p>
@@ -87,61 +110,70 @@
           featured as a guest singer, Eddie Diamond (lead doo-wop vocals) rounded out the group in 1993 at which time the groups name was shortened to 
           "Express." In 2004, Ricky Frase (sax, vocal bass) passed away. Approximately one year later, Richie B. became the groups sax player.</p>
           
-          <p><span>No. of Pieces:</span> 4<br>
-             <span>Years Together:</span> 56<br>
-             <span>Members of the Group:</span><br>
-             <span>Mike:</span> Keyboards / Lead Vocals / 1st Tenor / 2nd Tenor / Falsetto<br>
-             <span>Don:</span> Lead Vocals / 2nd Tenor / Percussion<br>
-             <span>Eddie:</span> Lead Vocals and Doo-wop Leads<br>
-             <span>Richie B:</span> Sax/ Flute / Clarinet</p>
+          <p><span>No. of Pieces:</span> 4</p>
+          <p><span>Years Together:</span> 56</p>
+          <p><span>Members of the Group:</span></p>
+          <p><span>Mike:</span> Keyboards / Lead Vocals / 1st Tenor / 2nd Tenor / Falsetto</p>
+          <p><span>Don:</span> Lead Vocals / 2nd Tenor / Percussion</p>
+          <p><span>Eddie:</span> Lead Vocals and Doo-wop Leads</p>
+          <p><span>Richie B:</span> Sax/ Flute / Clarinet</p>
+       </div> 
       </div>
-        
-    </div>
+    </div> <!-- End Row -->
    </section>
 
    <section class="row" id="section-3">
-    <div class="col-sm-4">
-        <div class="show-text">
-         <h1>See Us Live</h1>
-          <div ng-repeat="showdate in showdates">
-            <h3>{{ showdate.venue}}</h3>
-            <span>{{showdate.date | date:'EEEE MMM d, y'}}</span><br>
-            <span>{{showdate.time}}</span>
-            <p class="show-details"><span>{{showdate.address}}</span><br>
-            <span>{{showdate.street}}</span><br>
-            <span>{{showdate.town}}</span><br>
-            <span>{{showdate.state}} {{showdate.zip}}</span><br>
-            <span>{{showdate.phone}}</span><br>
-            <span>{{showdate.notes}}</span><br></p>
-            <hr>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="show-text">
+            <h1>See Us Live</h1>
+            <div ng-repeat="showdate in showdates">
+              <h3>{{ showdate.venue}}</h3>
+              <span>{{showdate.date | date:'EEEE MMM d, y'}}</span><br>
+              <span>{{showdate.time}}</span>
+              <p class="show-details"><span>{{showdate.address}}</span><br>
+              <span>{{showdate.street}}</span><br>
+              <span>{{showdate.town}}</span><br>
+              <span>{{showdate.state}} {{showdate.zip}}</span><br>
+              <span>{{showdate.phone}}</span><br>
+              <span>{{showdate.notes}}</span><br></p>
+              <hr>
           </div>
         </div>
     </div>
-    <div class="col-sm-8">
-        <img class="guitar" src="../assets/images/guitar.png" alt="">
+    <div class="col-xs-8">
+        <img class="guitar" src="../assets/images/guitar.png" alt="Guitar Image">
     </div>
+      </div> <!-- End Row -->
    </section>
 
-   <section class="row" id="section-4">
-    <div class="col-sm-6">
-      <img class="mic" src="../assets/images/mic.png" alt="">
-    </div>
-    <div class="col-sm-6">
-      <div class="contact-text">
-        <h1>Contact Us</h1>
-        <input class="expressinput" type="text" name="name" value="your name" placeholder="Name" ng-model="uemail.name"><br>
-        <input class="expressinput" type="text" name="name" value="your name" placeholder="Email" ng-model="uemail.address"><br>
-        <input class="expressinput" type="text" name="name" value="your name" placeholder="Subject" ng-model="uemail.subject"><br>
-        <textarea rows="4" cols="50" ng-model="uemail.message"> 
-        </textarea>
-        <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="userMail()">
+  <section id="section-4">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <img class="mic" src="../assets/images/mic.png" alt="Microphone Image">
       </div>
-    </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="contact-text">
+          <h1>Contact Us</h1>
+          <input class="expressinput" type="text" name="name" value="your name" placeholder="Name" ng-model="uemail.name"><br>
+          <input class="expressinput" type="text" name="name" value="your name" placeholder="Email" ng-model="uemail.address"><br>
+          <input class="expressinput" type="text" name="name" value="your name" placeholder="Subject" ng-model="uemail.subject"><br>
+          <textarea rows="4" cols="50" placeholder="type your message here" ng-model="uemail.message"> 
+          </textarea>
+          <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="userMail()">
+        </div>
+      </div>
+    </div> <!-- End Row --> 
   </section>
-   <section class="row">
-    <div class="col-sm-12">
-        <div class="checkers"></div>
-    </div>
+
+   <section>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="checkers">
+            <!-- Checkers Pattern -->
+          </div>
+        </div>
+      </div>
    </section>
 
 
@@ -152,4 +184,4 @@
         <p>Weddings &#8226; Private Parties &#8226; Dances &#8226; Corporate Events &#8226; Reunions</p>
     </div>
   </footer>
-</div>
+</div> <!-- .pagewrapper -->
