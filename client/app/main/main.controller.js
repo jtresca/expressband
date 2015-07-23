@@ -41,5 +41,10 @@ angular.module('expressbandApp')
             console.log("sorry there was an error or you've already submitted");
         }
      }
+
+     $scope.userMail = function() {
+        $http.post('/api/useremail',{ address: $scope.uemail.address, name: $scope.uemail.name, subject: $scope.uemail.subject, message: $scope.uemail.message });
+        console.log("post succeeded-userMail");
+     }
       
   });
