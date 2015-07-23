@@ -34,6 +34,8 @@ textarea {
     background-color: none !important;
     background: none;
     margin-top: 1em;
+    padding-left: .5em;
+    padding-top: .3em;
     border-color: @basegreen;
     width: 100%;
     height: 20em;
@@ -159,6 +161,8 @@ ul {
 .welcome {
     position: relative;
     width: 100%;
+    right: 2em;
+    opacity: .75;
 }
 .checkers {
     width: 100%;
@@ -178,10 +182,11 @@ ul {
     font-size: 1.1em;
     text-align: left;
     margin-top: 2.5em;
-    padding-right: 2.5em;
+    
 }
 .jointext p {
     color: @bodytext;
+    padding-right: 2.5em;
 }
 
 .maillistform {
@@ -311,8 +316,14 @@ ul {
   margin-bottom: 1em;
     }
     .navbar-collapse {
-
         background: url("../assets/images/nav_bg_paper.jpg");
+        margin-top: 1em;
+    }
+
+    a.active {
+    background:rgba(117,182,146,.8) !important;
+    color:black !important;
+    width: 110% !important;
     }
 }
 @media (min-width: 769px) and (max-width: 992px) {

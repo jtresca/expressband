@@ -1,5 +1,5 @@
 angular.module('expressbandApp')
-  .controller('NavbarCtrl', function ($scope, $location, $document, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, $document, Auth, $window) {
     'use strict';
     $scope.menu = [{
       'title': 'Welcome',
@@ -31,22 +31,28 @@ angular.module('expressbandApp')
     var top = 400;
     var duration = 2000;
 
-///ADDED WINDOW CODE
-    $(window).on("resize.doResize", function (){
-        alert(window.innerWidth);
+///GET INTIAL WINDOW WIDTH
+    if ($window.innerWidth <= 768) {
+      $scope.mobileNavActive = true;
+    }
+    else {
+      $scope.mobileNavActive = false;
+    }
 
-     $scope.$apply(function(){
-          if (window.innerWidth <= 768) {
-            $scope.mobileNavActive = true;
-           //do something to update current scope based on the new innerWidth and let angular update the view.
-          }
+///CHECK WINDOW WIDTH FOR MOBILE DEVICES
+    angular.element($window).bind('resize',function(){
+      $scope.$apply(function(){
+        if ($window.innerWidth <= 768) {
+          console.log("mobileview should be true: ", $scope.mobileNavActive);
+          $scope.mobileNavActive = true;
+        }
+        else {
+          console.log("mobileview should be false: ", $scope.mobileNavActive);
+          $scope.mobileNavActive = false;
+        }
       });
     });
 
-    $scope.$on("$destroy",function (){
-         $(window).off("resize.doResize"); //remove the handler added earlier
-    });
-///ADDED WINDOW CODE
 
     $scope.logout = function() {
       Auth.logout();
