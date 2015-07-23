@@ -16,7 +16,8 @@
     <div class="collapse navbar-collapse" collapse="!navbarData.menuCollapsed">
       <ul class="nav navbar-nav navbar-right">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}" du-smooth-scroll du-scrollspy>{{item.title}}</a>
+            <a ng-if="mobileNavActive" ng-click="navbarData.menuCollapsed = !navbarData.menuCollapsed" ng-href="{{item.link}}" du-smooth-scroll du-scrollspy>{{item.title}}</a>
+            <a ng-if="!mobileNavActive" ng-href="{{item.link}}" du-smooth-scroll du-scrollspy>{{item.title}}</a>
         </li>
         <!-- ng-click="navbarData.menuCollapsed = !navbarData.menuCollapsed" -->
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>

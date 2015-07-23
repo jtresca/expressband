@@ -27,9 +27,26 @@ angular.module('expressbandApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.mobileNavActive = false;
     var top = 400;
     var duration = 2000;
 
+///ADDED WINDOW CODE
+    $(window).on("resize.doResize", function (){
+        alert(window.innerWidth);
+
+     $scope.$apply(function(){
+          if (window.innerWidth <= 768) {
+            $scope.mobileNavActive = true;
+           //do something to update current scope based on the new innerWidth and let angular update the view.
+          }
+      });
+    });
+
+    $scope.$on("$destroy",function (){
+         $(window).off("resize.doResize"); //remove the handler added earlier
+    });
+///ADDED WINDOW CODE
 
     $scope.logout = function() {
       Auth.logout();
