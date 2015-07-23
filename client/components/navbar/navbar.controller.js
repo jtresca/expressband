@@ -18,9 +18,11 @@ angular.module('expressbandApp')
       'link': '#section-4'
     }
     ];
-    $scope.navbarToggle = function () {
-      
+
+    $scope.navbarData = {
+      menuCollapsed: false
     };
+
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
