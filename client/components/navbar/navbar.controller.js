@@ -1,7 +1,6 @@
-'use strict';
-
 angular.module('expressbandApp')
   .controller('NavbarCtrl', function ($scope, $location, $document, Auth) {
+    'use strict';
     $scope.menu = [{
       'title': 'Welcome',
       'link': '#section-1'
@@ -19,6 +18,10 @@ angular.module('expressbandApp')
       'link': '#section-4'
     }
     ];
+
+    $scope.navbarData = {
+      menuCollapsed: false
+    };
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
