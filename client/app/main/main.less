@@ -44,7 +44,11 @@ textarea {
 hr {
     border-color: @basegreen;
 }
-
+// overwrite container-fluid to remove padding on sides
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
 .thing-form {
   margin: 20px 0;
@@ -88,10 +92,10 @@ body {
 }
 
 nav {
+    top: 0;
     display: block;  
     width: 100%;
     height: 3em;
-    // margin-top: 7em;
     font-weight: 500;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 1.2em;
@@ -108,6 +112,7 @@ nav {
 
 .pagewrapper {
     margin-top: 9em;
+
 }
 
 //  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { 
@@ -160,9 +165,9 @@ ul {
 
 .welcome {
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
-    right: 2em;
-    opacity: .75;
 }
 .checkers {
     width: 100%;
@@ -173,10 +178,12 @@ ul {
     opacity: .60;
 }
 .joinmailimg {
+    position: relative;
     margin-top: 2.5em;
-    margin-left: 2.6em;
-    width: 35em; 
-    opacity: .60;
+    margin-left: 33px;
+    margin-right: 33px;
+    // width: 35em; 
+    width: 100%;
 }
 .jointext {
     font-size: 1.1em;
@@ -186,7 +193,8 @@ ul {
 }
 .jointext p {
     color: @bodytext;
-    padding-right: 2.5em;
+    margin-left: 33px;
+    margin-right: 33px;
 }
 
 .maillistform {
