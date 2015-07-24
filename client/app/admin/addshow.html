@@ -1,11 +1,19 @@
-<div>
-	Venue name: <input ng-model="newShow.venue" type="text"><br>
-  	Street: <input ng-model="newShow.street" type="text"><br>
-  	Town: <input ng-model="newShow.town" type="text"><br>
-  	Zip: <input ng-model="newShow.zip" type="text"><br>
-  	Date: <input ng-model="newShow.date" type="text"><br>
-  	Time: <input  ng-model="newShow.time" type="text"><br>
-  	Phone: <input ng-model="newShow.phone" type="text"><br>
-  	Notes: <input ng-model="newShow.notes" type="text"><br>
-  	<input ng-click="addShow()" type="submit" value="Submit">
-</div>
+
+
+<section class="formcontainer">
+	<h1>Add a new show</h1>
+	<div>
+		<input class="expressinput" placeholder="Venue Name" ng-model="newShow.venue" type="text"><br>
+	  	<input class="expressinput" placeholder="Street" ng-model="newShow.street" type="text"><br>
+	  	<input class="expressinput" placeholder="Town" ng-model="newShow.town" type="text"><br>
+	   <input class="expressinput" placeholder="Zip" ng-model="newShow.zip" type="text"><br>
+	   <input class="expressinput" placeholder="Date" ng-model="newShow.date" type="text"><br>
+	  	<input class="expressinput" placeholder="Time" ng-model="newShow.time" type="text"><br>
+		<input class="expressinput" placeholder="Phone" ng-model="newShow.phone" type="text"><br>
+	  	<input class="expressinput" placeholder="Notes" ng-model="newShow.notes" type="text"><br>
+	  	<input class="expressbutton" ng-click="addShow()" type="submit" value="Submit">
+	</div>
+	<br>
+	<h1>View and edit existing shows</h1>
+</section>
+
