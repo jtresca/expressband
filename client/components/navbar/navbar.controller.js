@@ -69,4 +69,4 @@ angular.module('expressbandApp')
     };
     
 
-  }).value('duScrollOffset', 120);
+  }).value('duScrollOffset', 120).value('duScrollDuration', 1000);
