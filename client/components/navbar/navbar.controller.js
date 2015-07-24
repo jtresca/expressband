@@ -28,8 +28,6 @@ angular.module('expressbandApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.mobileNavActive = false;
-    var top = 400;
-    var duration = 2000;
 
 ///GET INTIAL WINDOW WIDTH
     if ($window.innerWidth <= 768) {
@@ -62,9 +60,13 @@ angular.module('expressbandApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+    $scope.topOfPage = function () {
+       var top = 0;
+       var duration = 1000;
+      $document.scrollTopAnimated(top, duration).then(function() {
+      console && console.log('You just scrolled to the top!');
+      });
+    };
+    
 
-    // $document.scrollTop(top, duration).then(function() {
-    //   console && console.log('You just scrolled to the top!');
-    // });
-
-  }).value('duScrollOffset', 50);
+  }).value('duScrollOffset', 120);
