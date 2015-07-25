@@ -129,12 +129,12 @@
             <div ng-repeat="showdate in showdates">
               <h3>{{ showdate.venue}}</h3>
               <span>{{showdate.date | date:'EEEE MMM d, y'}}</span><br>
-              <span>{{showdate.time}}</span>
+              <span>{{showdate.startTime }}-{{ showdate.endTime}}</span>
               <p class="show-details"><span>{{showdate.address}}</span><br>
               <span>{{showdate.street}}</span><br>
               <span>{{showdate.town}}</span><br>
               <span>{{showdate.state}} {{showdate.zip}}</span><br>
-              <span>{{showdate.phone}}</span><br>
+              <span>{{showdate.phone | tel}}</span><br>
               <span>{{showdate.notes}}</span><br></p>
               <hr>
           </div>

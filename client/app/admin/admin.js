@@ -17,5 +17,10 @@ angular.module('expressbandApp')
         templateUrl: 'app/admin/email.html',
         controller: 'AdminCtrl',
         authenticate: true
+      })
+      .when('/addviewusers', {
+        templateUrl: 'app/admin/addviewuser.html',
+        controller: 'AdminCtrl',
+        authenticate: true
       });
   });

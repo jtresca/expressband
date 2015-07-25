@@ -10,7 +10,8 @@ var ShowdateSchema = new Schema({
   state: { type: String, default: "NY" },
   zip: Number,
   date: Date,
-  time: String,
+  startTime: String,
+  endTime: String,
   phone: String,
   notes: String
 });
