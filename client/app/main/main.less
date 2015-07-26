@@ -109,7 +109,18 @@ nav {
     background: url("../assets/images/nav_bg_paper.jpg")!important;
     background-repeat: repeat-x;
 }
-
+nav div div.navbar-header button.navbar-toggle {
+    border-color: rgb(228,192, 176 );
+    margin-top: 17px;
+    margin-right: 40px;
+    background-color: rgb(90,150,128);
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: rgb(139,182, 147 );
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: rgb(220,177,161 );
+}
 .pagewrapper {
     margin-top: 9em;
 
@@ -127,18 +138,20 @@ a.active {
 //     background:rgba(117,182,146,.8);
 // }
 
-ul {
-    margin-top: 29px !important;
-    margin-right: 6px !important;
+ul.nav.navbar-nav.navbar-right {
+    margin-top: 29px;
+    margin-right: 40px;
 }
 
 .navbar-header {
     padding-left: 20px;
     padding-top: 20px;
 }
-
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 20px;
+}
 .navbar-brand {
-    // margin: 1.5em 0 0 2em;
+    
     width: 12em;
     height: 4em;
     background: url("../assets/images/express_logo.png");
@@ -147,7 +160,6 @@ ul {
 }
 
 .navbar-default { 
-    // background: url("../assets/images/bg_paper.jpg")!important;
     background: url("../assets/images/nav_bg_paper.jpg");
     background-repeat: repeat-x;
     position:fixed;
@@ -155,12 +167,12 @@ ul {
 }
  .navbar-static-top {
     border:none;
-    // height: 9.5em;
     height: 6.5em;
 }
 
 .train {
      width: 100%;
+     
 }
 
 .welcome {
@@ -183,7 +195,6 @@ ul {
     margin-top: 2.5em;
     margin-left: 33px;
     margin-right: 33px;
-    // width: 35em; 
     width: 100%;
 }
 .jointext {
