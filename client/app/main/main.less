@@ -44,7 +44,7 @@ textarea {
 hr {
     border-color: @basegreen;
 }
-// overwrite container-fluid to remove padding on sides
+// overwrite container-fluid to remove padding on sides since we have custom divs for that.
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
@@ -339,7 +339,10 @@ ul.nav.navbar-nav.navbar-right {
         background: url("../assets/images/nav_bg_paper.jpg");
         margin-top: 1em;
     }
-
+    ul.nav.navbar-nav.navbar-right {
+        margin-right: auto;
+        margin-left: 20px;
+    }
     a.active {
     background:rgba(117,182,146,.8) !important;
     color:black !important;
