@@ -1,193 +1,204 @@
-
-
-
 <!-- Main Content -->
 <div class="pagewrapper">
-  <section>
-    <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <img class="train" src="../assets/images/train.png" alt="Train image">
-      </div>
-      <div class="col-xs-12 col-sm-offset-1 col-sm-5">
-        <img class="welcome" src="../assets/images/welcome.svg" alt="We are a premiere oldies band">
-      </div>
-    </div> <!-- End Row -->
-  </div>
-  </section>
-
-   
-      <div class="checkers">
-        <!-- Checker pattern here -->
-      </div>
-   
-
-   <section offset="30" >
-    <div class="container-fluid" id="section-5">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <img class="joinmailimg" src="../assets/images/joinmail.svg" alt="Join mailing list">
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="jointext">
-            <p>You can be notified when we're playing a show by signing up for our mailing list. </p>
-          <p>Express respects your privacy, and we will <strong>NEVER</strong> sell your information to anyone for any reason.</p>
-          </div>
-        </div>
-      </div> <!-- End Row -->
-    </div>
-   </section>
-
-  <section>
-    <div class="container-fluid">
-        <div class="maillistform ">
-          <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
-          <div class="row">
-            <div class="col-xs-12">
-              <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required><br>
-              <!--VALIDATE NAME-->
-               <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">Your name is required.</p> 
-               <!--END VALIDATE NAME-->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <img class="train" src="../assets/images/train.png" alt="Train image">
+                </div>
+                <div class="col-xs-12 col-sm-offset-1 col-sm-5">
+                    <img class="welcome" src="../assets/images/welcome.svg" alt="We are a premiere oldies band">
+                </div>
             </div>
-          <div class="col-xs-12">
-            <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="maillist.email" required><br>
-
-            <!--VALIDATE EMAIL-->
-             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p> 
-             <p ng-show="emailExists" class="help-block">Your email is already in use.</p> 
-
-            <!--VALIDATE NAME-->
-             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p> 
-
-             <!-- <p ng-show="mailingList.email.$invalid && mailingList.email.$touched " class="help-block">You email is required</p>  -->
-             <!--END VALIDATE EMAIL-->
-          </div>
-          <div class="col-xs-12">
-            <input class="expressbutton" ng-class="{ expressbuttonvalid : mailingList.$valid}" type="submit" value="Send" ng-disabled="mailingList.$invalid">
-          </div>
-          </div>
-        </form>
-      </div>
-    </div> <!-- End Row -->
+            <!-- End Row -->
+        </div>
+    </section>
+    <div class="checkers">
+        <!-- Checker pattern here -->
     </div>
-  </section>
-
-  <section >
+    <section offset="30">
+        <div class="container-fluid" id="section-5">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <img class="joinmailimg" src="../assets/images/joinmail.svg" alt="Join mailing list">
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="jointext">
+                        <p>You can be notified when we're playing a show by signing up for our mailing list. </p>
+                        <p>Express respects your privacy, and we will <strong>NEVER</strong> sell your information to anyone for any reason.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Row -->
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid">
+            <div class="maillistform ">
+                <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required>
+                            <br>
+                            <!--VALIDATE NAME-->
+                            <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">Your name is required.</p>
+                            <!--END VALIDATE NAME-->
+                        </div>
+                        <div class="col-xs-12">
+                            <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="maillist.email" required>
+                            <br>
+                            <!--VALIDATE EMAIL-->
+                            <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p>
+                            <p ng-show="emailExists" class="help-block">Your email is already in use.</p>
+                            <!--VALIDATE NAME-->
+                            <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p>
+                            <!-- <p ng-show="mailingList.email.$invalid && mailingList.email.$touched " class="help-block">You email is required</p>  -->
+                            <!--END VALIDATE EMAIL-->
+                        </div>
+                        <div class="col-xs-12">
+                            <input class="expressbutton" ng-class="{ expressbuttonvalid : mailingList.$valid}" type="submit" value="Send" ng-disabled="mailingList.$invalid">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End Row -->
+</div>
+</section>
+<section>
     <div class="container-fluid" id="section-1">
-    <div class="row small-device-visable">
-      <div class="col-xs-offset-6 col-xs-6">
-        <img class="small-car" src="../assets/images/car.png" alt="Classic Car">
-      </div>
+        <div class="row small-device-visable">
+            <div class="col-xs-offset-6 col-xs-6">
+                <img class="small-car" src="../assets/images/car.png" alt="Classic Car">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="welcome-text">
+                    <h1>Welcome</h1>
+                    <p>Thanks for stopping by the web site of Long Island's premiere oldies dance band. At it's core, "Express" is a six piece band consisting of vocals, guitar, keyboard, percussion, sax and drums. We specialize in music covering the 40's, 50's, 60's, 70's, 80's and 90's.</p>
+                    <p>Express has performed with such great groups as, "The Capris", "The Passions", "The Mystics", "Demensions", "Dion and the Belmonts", "The Drifters", and "The Coasters." Click around and discover how we can accommodate your next occasion.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <img class="car" src="../assets/images/car.png" alt="Classic Car">
+            </div>
+        </div>
+        <!-- End Row -->
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-          <div class="welcome-text">
-           <h1>Welcome</h1>
-
-            <p>Thanks for stopping by the web site of Long Island's premiere oldies dance band. At it's core, "Express" is a six piece band consisting of vocals, guitar, keyboard, percussion, sax and drums. We specialize in music covering the 40's, 50's, 60's, 70's, 80's and 90's.</p>
-
-            <p>Express has performed with such great groups as, "The Capris", "The Passions", "The Mystics", "Demensions", "Dion and the Belmonts", "The Drifters", and "The Coasters." Click around and discover how we can accommodate your next occasion.</p>
-          </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-          <img class="car" src="../assets/images/car.png" alt="Classic Car">
-      </div>
-    </div>  <!-- End Row -->
-    </div>
-   </section>
-
-   <section>
+</section>
+<section>
     <div class="container-fluid" id="section-2">
-      <div class="row">
-        <div class="col-sm-5">
-          <img class="jukebox" src="../assets/images/jukebox.png" alt="JukeBox Image">
+        <div class="row">
+            <div class="col-sm-5">
+                <img class="jukebox" src="../assets/images/jukebox.png" alt="JukeBox Image">
+            </div>
+            <div class="col-xs-12">
+                <div class="about-text">
+                    <h1>About</h1>
+                    <div class="show-on-only-xs-devices">
+                        <p>"Express" established it's roots back in the mid 1950's with the oldest of the Dana Brothers and the group's leader, Frank Dana ( rhythm guitar, lead vocals, and falsetto), playing in the group "Rusty and the Rock-A-Tones."<span ng-if="isCollapsed"> <a ng-click="toggleCollapsed()"> Read more...</a></span></p>
+                        <div collapse="isCollapsed">
+                            <p>"Express" established it's roots back in the mid 1950's with the oldest of the Dana Brothers and the group's leader, Frank Dana ( rhythm guitar, lead vocals, and falsetto), playing in the group "Rusty and the Rock-A-Tones."</p>
+                            <p>Mike Dana ( keyboards, falsetto, lead vocals and musical arranger) joined the "Rock-A-Tones" in 1957, at the age of 12 when they became the house band for St. Thomas Aquinas Church on Flatlands Avenue in Brooklyn. St. Thomas sponsored many of the 50's rock and roll shows where the "Rock-A-Tones" backed such groups as "Dion and the Belmonts", "The Passions", "The Mystics", and "The Dimensions", to name a few. In 1960 Frank Dana went into the service and the "Rock-A-Tones" disbanded.</p>
+                            <p>After joining the LIRR in 1967, he met Frank Sellers and formed a group called "Frank Sellers and the Coachmen", playing mostly country music, and some 50's and 60's. The group stayed together until 1981, when Rick Frase (sax and vocal bass) and Frank left to form "NiteOwl Express", playing mostly 50's and 60's music and some country. Mike Dana rejoined his brother's group in 1983, and the youngest of the Dana Brothers, Don (Lead vocals, 2nd tenor and percussion), joined in 1985. Tony Orlando "NiteOwl Express" drummer passed away in 1990, and Frankie B. (Frank Bell) became the group's drummer. After following the band for about a year, and being featured as a guest singer, Eddie Diamond (lead doo-wop vocals) rounded out the group in 1993 at which time the groups name was shortened to "Express." In 2004, Ricky Frase (sax, vocal bass) passed away. Approximately one year later, Richie B. became the groups sax player.</p>
+                            <p><span>No. of Pieces:</span> 4</p>
+                            <p><span>Years Together:</span> 56</p>
+                            <p><span>Members of the Group:</span></p>
+                            <p><span>Mike:</span> Keyboards / Lead Vocals / 1st Tenor / 2nd Tenor / Falsetto</p>
+                            <p><span>Don:</span> Lead Vocals / 2nd Tenor / Percussion</p>
+                            <p><span>Eddie:</span> Lead Vocals and Doo-wop Leads</p>
+                            <p><span>Richie B:</span> Sax/ Flute / Clarinet</p>
+                            <button class="expressbutton" ng-click="toggleCollapsed();toAboutSection()">Close</button>
+                        </div>
+                    </div>
+                    <div class="hide-on-xs-devices">
+                        <p>"Express" established it's roots back in the mid 1950's with the oldest of the Dana Brothers and the group's leader, Frank Dana ( rhythm guitar, lead vocals, and falsetto), playing in the group "Rusty and the Rock-A-Tones."</p>
+                        <p>Mike Dana ( keyboards, falsetto, lead vocals and musical arranger) joined the "Rock-A-Tones" in 1957, at the age of 12 when they became the house band for St. Thomas Aquinas Church on Flatlands Avenue in Brooklyn. St. Thomas sponsored many of the 50's rock and roll shows where the "Rock-A-Tones" backed such groups as "Dion and the Belmonts", "The Passions", "The Mystics", and "The Dimensions", to name a few. In 1960 Frank Dana went into the service and the "Rock-A-Tones" disbanded.</p>
+                        <p>After joining the LIRR in 1967, he met Frank Sellers and formed a group called "Frank Sellers and the Coachmen", playing mostly country music, and some 50's and 60's. The group stayed together until 1981, when Rick Frase (sax and vocal bass) and Frank left to form "NiteOwl Express", playing mostly 50's and 60's music and some country. Mike Dana rejoined his brother's group in 1983, and the youngest of the Dana Brothers, Don (Lead vocals, 2nd tenor and percussion), joined in 1985. Tony Orlando "NiteOwl Express" drummer passed away in 1990, and Frankie B. (Frank Bell) became the group's drummer. After following the band for about a year, and being featured as a guest singer, Eddie Diamond (lead doo-wop vocals) rounded out the group in 1993 at which time the groups name was shortened to "Express." In 2004, Ricky Frase (sax, vocal bass) passed away. Approximately one year later, Richie B. became the groups sax player.</p>
+                        <p><span>No. of Pieces:</span> 4</p>
+                        <p><span>Years Together:</span> 56</p>
+                        <p><span>Members of the Group:</span></p>
+                        <p><span>Mike:</span> Keyboards / Lead Vocals / 1st Tenor / 2nd Tenor / Falsetto</p>
+                        <p><span>Don:</span> Lead Vocals / 2nd Tenor / Percussion</p>
+                        <p><span>Eddie:</span> Lead Vocals and Doo-wop Leads</p>
+                        <p><span>Richie B:</span> Sax/ Flute / Clarinet</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-xs-12">
-          <div class="about-text">
-           <h1>About</h1>
-            <p>"Express" established it's roots back in the mid 1950's with the oldest of the Dana Brothers and the group's leader, Frank Dana ( rhythm guitar, lead vocals, and falsetto), playing in the group "Rusty and the Rock-A-Tones."</p>
-
-            <p>Mike Dana ( keyboards, falsetto, lead vocals and musical arranger) joined the "Rock-A-Tones" in 1957, at the age of 12 when they became the house band for St. Thomas Aquinas Church on Flatlands Avenue in Brooklyn. St. Thomas sponsored many of the 50's rock and roll shows where the "Rock-A-Tones" backed such groups as "Dion and the Belmonts", "The Passions", "The Mystics", and "The Dimensions", to name a few. In 1960 Frank Dana went into the service and the "Rock-A-Tones" disbanded.</p>
-
-            <p>After joining the LIRR in 1967, he met Frank Sellers and formed a group called "Frank Sellers and the Coachmen", playing mostly country music, and some 50's and 60's. The group stayed together until 1981, when Rick Frase (sax and vocal bass) and Frank left to form "NiteOwl Express", playing mostly 50's and 60's music and some country. Mike Dana rejoined his brother's group in 1983, and the youngest of the Dana Brothers, Don (Lead vocals, 2nd tenor and 
-            percussion), joined in 1985. Tony Orlando "NiteOwl 
-            Express" drummer passed away in 1990, and Frankie B. (Frank Bell) became the group's drummer. After following the band for about a year, and being 
-            featured as a guest singer, Eddie Diamond (lead doo-wop vocals) rounded out the group in 1993 at which time the groups name was shortened to 
-            "Express." In 2004, Ricky Frase (sax, vocal bass) passed away. Approximately one year later, Richie B. became the groups sax player.</p>
-            
-            <p><span>No. of Pieces:</span> 4</p>
-            <p><span>Years Together:</span> 56</p>
-            <p><span>Members of the Group:</span></p>
-            <p><span>Mike:</span> Keyboards / Lead Vocals / 1st Tenor / 2nd Tenor / Falsetto</p>
-            <p><span>Don:</span> Lead Vocals / 2nd Tenor / Percussion</p>
-            <p><span>Eddie:</span> Lead Vocals and Doo-wop Leads</p>
-            <p><span>Richie B:</span> Sax/ Flute / Clarinet</p>
-         </div> 
-        </div>
-      </div> <!-- End Row -->
+        <!-- End Row -->
     </div>
-   </section>
-
-   <section id="section-3">
+</section>
+<section id="section-3">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="show-text">
-            <h1>See Us Live</h1>
-            <div ng-repeat="showdate in showdates">
-              <h3>{{ showdate.venue}}</h3>
-              <span>{{showdate.date | date:'EEEE MMM d, y'}}</span><br>
-              <span>{{showdate.startTime }}-{{ showdate.endTime}}</span>
-              <p class="show-details"><span>{{showdate.address}}</span><br>
-              <span>{{showdate.street}}</span><br>
-              <span>{{showdate.town}}</span><br>
-              <span>{{showdate.state}} {{showdate.zip}}</span><br>
-              <span>{{showdate.phone | tel}}</span><br>
-              <span>{{showdate.notes}}</span><br></p>
-              <hr>
-          </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="show-text">
+                    <h1>See Us Live</h1>
+                    <div ng-repeat="showdate in showdates">
+                        <h3>{{ showdate.venue}}</h3>
+                        <span>{{showdate.date | date:'EEEE MMM d, y'}}</span>
+                        <br>
+                        <span>{{showdate.startTime }}-{{ showdate.endTime}}</span>
+                        <p class="show-details"><span>{{showdate.address}}</span>
+                            <br>
+                            <span>{{showdate.street}}</span>
+                            <br>
+                            <span>{{showdate.town}}</span>
+                            <br>
+                            <span>{{showdate.state}} {{showdate.zip}}</span>
+                            <br>
+                            <span>{{showdate.phone | tel}}</span>
+                            <br>
+                            <span>{{showdate.notes}}</span>
+                            <br>
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <img class="guitar" src="../assets/images/guitar.png" alt="Guitar Image">
+            </div>
         </div>
+        <!-- End Row -->
     </div>
-    <div class="col-xs-8">
-        <img class="guitar" src="../assets/images/guitar.png" alt="Guitar Image">
-    </div>
-      </div> <!-- End Row -->
-      </div>
-   </section>
-
-  <section id="section-4">
+</section>
+<section id="section-4">
     <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <img class="mic" src="../assets/images/mic.png" alt="Microphone Image">
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <div class="contact-text">
-          <h1>Contact Us</h1>
-          <input class="expressinput" type="text" name="name"  placeholder="Name" ng-model="uemail.name"><br>
-          <input class="expressinput" type="text" name="name"  placeholder="Email" ng-model="uemail.address"><br>
-          <input class="expressinput" type="text" name="name"  placeholder="Subject" ng-model="uemail.subject"><br>
-          <textarea rows="3" cols="50" placeholder="Message" ng-model="uemail.message"> 
-          </textarea>
-          <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="userMail()">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <img class="mic" src="../assets/images/mic.png" alt="Microphone Image">
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="contact-text">
+                    <h1>Contact Us</h1>
+                    <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="uemail.name">
+                    <br>
+                    <input class="expressinput" type="text" name="name" placeholder="Email" ng-model="uemail.address">
+                    <br>
+                    <input class="expressinput" type="text" name="name" placeholder="Subject" ng-model="uemail.subject">
+                    <br>
+                    <textarea rows="3" cols="50" placeholder="Message" ng-model="uemail.message">
+                    </textarea>
+                    <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="userMail()">
+                </div>
+            </div>
         </div>
-      </div>
-    </div> <!-- End Row --> 
+        <!-- End Row -->
     </div>
-  </section>
-
-   <section>
-      <div class="checkers">
+</section>
+<section>
+    <div class="checkers">
         <!-- Checkers Pattern -->
-      </div>
-   </section>
-
-
-
-  <footer class="footer">
+    </div>
+</section>
+<footer class="footer">
     <div>
         <p>Copyright &#169; 2015 Express Band All rights reserved.</p>
         <p>Weddings &#8226; Private Parties &#8226; Dances &#8226; Corporate Events &#8226; Reunions</p>
     </div>
-  </footer>
-</div> <!-- .pagewrapper -->
+</footer>
+</div>
+<!-- .pagewrapper -->
