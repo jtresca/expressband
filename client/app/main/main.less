@@ -248,8 +248,13 @@ ul.nav.navbar-nav.navbar-right {
     border: none;
     color: @darkpink;
     background: @basepink;
-    padding: 0 1em 0 1em
+    padding: 0 1em 0 1em;
+
 }
+.expressbutton:hover {
+        background: lighten(@basepink, 5%);
+        color: darken(@darkpink, 20%);
+    }
 
 .expressbuttonvalid {
     background: @basegreen;
@@ -374,6 +379,10 @@ ul.nav.navbar-nav.navbar-right {
         padding-left: 30px;
         padding-right: 30px;
     }
+    .jukebox {
+
+     width: 100%;
+}
 }
 @media (min-width: 769px) and (max-width: 992px) {
     .train {
