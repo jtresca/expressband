@@ -196,8 +196,11 @@ ul.nav.navbar-nav.navbar-right {
     margin-right: auto;
     width: 100%;
 }
+.small-device-visable {
+    display: none;
+}
 #section-5 {
-    margin-top: 2.5em;
+    margin-top: 5.5em;
 
 }
 .jointext {
@@ -330,6 +333,13 @@ ul.nav.navbar-nav.navbar-right {
 
 }
 @media (max-width: 768px) {
+    .small-device-visable {
+        margin-top: 3em;
+        display: block;
+    }
+    .small-car {
+        width: 100%;
+    }
     .train {
         display: none;
     }
@@ -367,9 +377,13 @@ ul.nav.navbar-nav.navbar-right {
     }
 
     .jointext {
-
-        font-size: 1.1em;
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.3em;
         margin-top: 30px;
+        width: 92%;
     
     }
     .maillistform {
@@ -377,6 +391,7 @@ ul.nav.navbar-nav.navbar-right {
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 2em;
     }
     .car {
         display: none;
