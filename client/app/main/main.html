@@ -45,28 +45,22 @@
       </div> <!-- End Row -->
    </section>
 
-  <section>
+  <section ng-hide="listJoinSuccess">
     <div class="row">
         <div class="maillistform ">
           <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
             <div class="col-xs-5">
               <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required><br>
               <!--VALIDATE NAME-->
-               <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">Your name is required.</p> 
+               <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" >Your name is required.</p> 
                <!--END VALIDATE NAME-->
             </div>
           <div class="col-xs-5">
             <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="maillist.email" required><br>
 
             <!--VALIDATE EMAIL-->
-             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p> 
-             <p ng-show="emailExists" class="help-block">Your email is already in use.</p> 
-
-            <!--VALIDATE NAME-->
-             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p> 
-
-             <!-- <p ng-show="mailingList.email.$invalid && mailingList.email.$touched " class="help-block">You email is required</p>  -->
-             <!--END VALIDATE EMAIL-->
+             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" >Your email is invalid.</p> 
+             <p ng-show="emailExists" >Your email is already in use.</p> 
           </div>
           <div class="col-xs-2">
             <input class="expressbutton" ng-class="{ expressbuttonvalid : mailingList.$valid}" type="submit" value="Send" ng-disabled="mailingList.$invalid">
@@ -75,7 +69,7 @@
       </div>
     </div> <!-- End Row -->
   </section>
-
+    <p ng-show="listJoinSuccess" class="help-block">Thanks for joining our mailing list!</p>
   <section id="section-1">
     <div class="row">
       <div class="col-xs-4">

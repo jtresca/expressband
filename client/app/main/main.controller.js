@@ -5,6 +5,7 @@ angular.module('expressbandApp')
     // $scope.awesomeThings = [];
     $scope.submitted = false;
     $scope.emailExists = false;
+    $scope.listJoinSuccess = false;
 
     $http.get('/api/showdates').success(function(dates) {
       $scope.showdates = dates;
@@ -36,8 +37,10 @@ angular.module('expressbandApp')
             $scope.emailExists = false;
         // if (isValid && $scope.submitted == false) {
             $http.post('/api/mailinglist',{ name: $scope.maillist.name , email: $scope.maillist.email})
-            .success(function() {
-                console.log("add email to db")
+            .success(function(data) {
+                console.log("add email to db", data.success);
+                $scope.listJoinSuccess = data.success;
+                console.log("listJoinSuccess", $scope.listJoinSuccess);
             })
             .error(function(data) {
                 console.log ("the email exists:",data.exists)
