@@ -6,6 +6,7 @@ angular.module('expressbandApp')
     $scope.submitted = false;
     $scope.emailExists = false;
     $scope.listJoinSuccess = false;
+    $scope.messageReceived = false;
 
     $http.get('/api/showdates').success(function(dates) {
       $scope.showdates = dates;
@@ -35,7 +36,7 @@ angular.module('expressbandApp')
 
      $scope.listJoin = function(isValid) {
             $scope.emailExists = false;
-        // if (isValid && $scope.submitted == false) {
+
             $http.post('/api/mailinglist',{ name: $scope.maillist.name , email: $scope.maillist.email})
             .success(function(data) {
                 console.log("add email to db", data.success);
@@ -47,19 +48,15 @@ angular.module('expressbandApp')
                  $scope.emailExists = data.exists;
                  console.log($scope.emailExists);
             })
-            // $scope.submitted = true;
-            // console.log("submitted to db!");
-        // }
-        // else {
-        //     console.log("sorry there was an error or you've already submitted");
-        //     $scope.submitted = false;
-        // }
+  
      }
 
-     $scope.userMail = function() {
+     $scope.userMail = function(isValid) {
         $http.post('/api/useremail',{ address: $scope.uemail.address, name: $scope.uemail.name, subject: $scope.uemail.subject, message: $scope.uemail.message })
-        .success(function(){
+        .success(function(data){
             console.log("post succeeded-userMail");
+            $scope.messageReceived = data.messageRecieved;
+            console.log(data.messageRecieved, ": was this true?");
         })
         .error(function(data){
            console.log(data.DUDE); 

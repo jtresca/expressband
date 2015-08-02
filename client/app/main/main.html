@@ -52,15 +52,15 @@
             <div class="col-xs-5">
               <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required><br>
               <!--VALIDATE NAME-->
-               <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" >Your name is required.</p> 
+               <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block" >Your name is required.</p> 
                <!--END VALIDATE NAME-->
             </div>
           <div class="col-xs-5">
             <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="maillist.email" required><br>
 
             <!--VALIDATE EMAIL-->
-             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" >Your email is invalid.</p> 
-             <p ng-show="emailExists" >Your email is already in use.</p> 
+             <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p> 
+             <p ng-show="emailExists"class="help-block">Email is already in use.</p> 
           </div>
           <div class="col-xs-2">
             <input class="expressbutton" ng-class="{ expressbuttonvalid : mailingList.$valid}" type="submit" value="Send" ng-disabled="mailingList.$invalid">
@@ -69,7 +69,7 @@
       </div>
     </div> <!-- End Row -->
   </section>
-    <p ng-show="listJoinSuccess" class="help-block">Thanks for joining our mailing list!</p>
+    <p ng-show="listJoinSuccess" class="confirm-block">Thanks for joining our mailing list!</p>
   <section id="section-1">
     <div class="row">
       <div class="col-xs-4">
@@ -147,14 +147,26 @@
         <img class="mic" src="../assets/images/mic.png" alt="Microphone Image">
       </div>
       <div class="col-xs-12 col-md-6">
-        <div class="contact-text">
+        <div class="contact-text" ng-hide="messageReceived">
           <h1>Contact Us</h1>
-          <input class="expressinput" type="text" name="name"  placeholder="Name" ng-model="uemail.name"><br>
-          <input class="expressinput" type="text" name="name"  placeholder="Email" ng-model="uemail.address"><br>
-          <input class="expressinput" type="text" name="name"  placeholder="Subject" ng-model="uemail.subject"><br>
-          <textarea rows="4" cols="50" placeholder="Message" ng-model="uemail.message"> 
-          </textarea>
-          <input class="expressbutton contact_submit" type="submit" value="Send" ng-click="userMail()">
+          <form name="userEmail" ng-submit="userMail(userEmail.$valid)" novalidate>
+            <input class="expressinput" type="text" name="name"  placeholder="Name" ng-model="uemail.name" required><br>
+            <!--VALIDATE NAME-->
+               <p ng-show="userEmail.name.$invalid && !userEmail.name.$pristine" class="help-block" >Your name is required.</p> 
+               <!--END VALIDATE NAME-->
+            <input class="expressinput" type="text" name="email"  placeholder="Email" ng-model="uemail.address" required><br>
+             <!--VALIDATE EMAIL-->
+               <p ng-show="userEmail.email.$invalid && !userEmail.email.$pristine" class="help-block" >Your email is required.</p> 
+               <!--END VALIDATE EMAIL-->
+            <input class="expressinput" type="text" name="subject"  placeholder="Subject" ng-model="uemail.subject" required><br>
+              <!--VALIDATE SUBJECT-->
+               <p ng-show="userEmail.subject.$invalid && !userEmail.subject.$pristine" class="help-block" required>Your subject is required.</p> 
+               <!--END VALIDATE SUBJECT-->
+            <textarea ng-minlength="5" ng-maxlength="2000" rows="4" cols="50" name="message" placeholder="Message" ng-model="uemail.message" required> 
+            </textarea>
+            <p ng-show="userEmail.message.$invalid" class="help-block" >Your message is either too long or too short.</p> 
+            <input class="expressbutton contact_submit" ng-class="{ expressbuttonvalid : userEmail.$valid}" type="submit" value="Send" ng-disabled="userEmail.$invalid"> 
+          </form>  
         </div>
       </div>
     </div> <!-- End Row --> 
