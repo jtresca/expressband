@@ -2,8 +2,28 @@
 
 angular.module('expressbandApp')
   .controller('AdminCtrl', function ($scope, $http, Auth, User, $location, $route, telFilter) {
+  
+  $scope.loginName = Auth.getCurrentUser().name;
+  $scope.currencyVal;
+  $scope.currentTab = "addshow"
 
-$scope.currencyVal;
+  $scope.adminMenu = [{
+      'title': 'Add/Remove Users',
+      'visible': false,
+      'simplename': "adduser"
+    },
+    {
+      'title': 'Add Show Date',
+      'visible': false,
+      'simplename': "addshow"
+    },
+    {
+      'title': 'Email Fan List',
+      'visible': false,
+      'simplename': "emailfans"
+    }
+    ];
+
 
 
     $http.get('/api/showdates').success(function(dates) {
@@ -17,6 +37,11 @@ $scope.currencyVal;
     // Use the User $resource to fetch all users
     $scope.adminlocation = $location.path();
     $scope.users = User.query();
+  
+
+    $scope.adminLocation = function(location) {
+        console.log(location);
+    }
 
     $scope.emailUser = function() {
       $http.post('/api/email',{ address: $scope.email.address, name: $scope.email.name, subject: $scope.email.subject, message: $scope.email.message });
