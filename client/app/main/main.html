@@ -164,7 +164,7 @@
                <!--END VALIDATE SUBJECT-->
             <textarea ng-minlength="5" ng-maxlength="2000" rows="4" cols="50" name="message" placeholder="Message" ng-model="uemail.message" required> 
             </textarea>
-            <p ng-show="userEmail.message.$invalid" class="help-block" >Your message is either too long or too short.</p> 
+            <p ng-show="userEmail.message.$invalid && userEmail.message.$dirty" class="help-block" >Your message is either too short or too long.</p> 
             <input class="expressbutton contact_submit" ng-class="{ expressbuttonvalid : userEmail.$valid}" type="submit" value="Send" ng-disabled="userEmail.$invalid"> 
           </form>  
         </div>
