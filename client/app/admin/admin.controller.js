@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('expressbandApp')
-  .controller('AdminCtrl', function ($scope, $http, Auth, User, $location, $route, telFilter) {
+  .controller('AdminCtrl', function ($scope, $http, Auth, User, $location, $route, telFilter, $timeout) {
   
   $scope.loginName = Auth.getCurrentUser().name;
   $scope.currencyVal;
-  $scope.currentTab = "addshow"
+  $scope.isVisible = 'adduser';
 
   $scope.adminMenu = [{
       'title': 'Add/Remove Users',
@@ -25,22 +25,66 @@ angular.module('expressbandApp')
     ];
 
 
+  //REFRESH PAGE TO PULL BACK ANY BINDINGS WE MISS IN INTIAL DIGEST CALL
+    $scope.refreshPage = function() {
+        // $route.reload();
+        $location.path('/admin');
+    }
+
+    $timeout( function(){ $scope.refreshPage(); }, 50);
+  //END REFRESH PAGE
+
 
     $http.get('/api/showdates').success(function(dates) {
       $scope.showdates = dates;
     });
-    // if(!Auth.isAdmin()) {
-    //     $location.path('/')
-    //     console.log("Blocked!");
-    // }
+   
 
     // Use the User $resource to fetch all users
     $scope.adminlocation = $location.path();
     $scope.users = User.query();
+
+     $scope.register = function(form) {
+      console.log("register activated", $scope.user.role);
+      $scope.submitted = true;
+
+      
+        Auth.createUser({
+          name: $scope.user.name,
+          email: $scope.user.email,
+          password: $scope.user.password,
+          role: $scope.user.role
+        })
+        .then( function() {
+          // Account created, redirect to home
+          $route.reload();
+          Auth.logout();
+          $location.path('/');
+        })
+        .catch( function(err) {
+          err = err.data;
+          $scope.errors = {};
+
+          // // Update validity of form fields that match the mongoose errors
+          // angular.forEach(err.errors, function(error, field) {
+          //   form[field].$setValidity('mongoose', false);
+          //   $scope.errors[field] = error.message;
+          // });
+        });
+      
+    };
   
 
     $scope.adminLocation = function(location) {
-        console.log(location);
+        
+        //set them all to false
+        $scope.adminMenu.forEach( function (arrayItem)
+        {
+          arrayItem.visible = false;
+        });
+
+        $scope.isVisible = location.simplename;
+        console.log($scope.isVisible, "set selected to true");
     }
 
     $scope.emailUser = function() {
@@ -162,6 +206,8 @@ angular.module('expressbandApp').filter('tel', function() {
     }
 
   };
+
+   $scope.$apply();
 });
 
 //END TELEPHONE FILTERING

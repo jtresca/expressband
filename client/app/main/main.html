@@ -166,12 +166,13 @@
             </textarea>
             <p ng-show="userEmail.message.$invalid && userEmail.message.$dirty" class="help-block" >Your message is either too short or too long.</p> 
             <input class="expressbutton contact_submit" ng-class="{ expressbuttonvalid : userEmail.$valid}" type="submit" value="Send" ng-disabled="userEmail.$invalid"> 
-          </form>  
+          </form> 
         </div>
+        <p ng-show="messageReceived" class="confirm-block-contact">Thanks for contacting us! We will reply within 24 to 48 hours.</p> 
       </div>
     </div> <!-- End Row --> 
   </section>
-
+   
    <section>
       <div class="row">
         <div class="col-sm-12">
