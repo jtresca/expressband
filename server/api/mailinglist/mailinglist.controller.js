@@ -32,7 +32,7 @@ exports.create = function(req, res, next) {
        Mailinglist.create(req.body, function(err, mailinglist) {
         if(err) { return handleError(res, err); }
           // console.log(mailinglist);
-        return res.json(201, mailinglist);
+        return res.send(201, {success: true});
       });
     } 
     else {
