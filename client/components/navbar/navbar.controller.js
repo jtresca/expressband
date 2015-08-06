@@ -3,7 +3,8 @@ angular.module('expressbandApp')
     'use strict';
     $scope.menu = [{
       'title': 'Welcome',
-      'link': '#section-1'
+      'link': '#section-1',
+      'offset': 110
     },
     {
       'title': 'About Us',
@@ -11,11 +12,13 @@ angular.module('expressbandApp')
     },
     {
       'title': 'See Us Live',
-      'link': '#section-3'
+      'link': '#section-3',
+      'offset': 110
     },
     {
       'title': 'Book/Contact Us',
-      'link': '#section-4'
+      'link': '#section-4',
+      'offset': -90
     }
     ];
 
@@ -68,5 +71,5 @@ angular.module('expressbandApp')
       });
     };
     
-
-  }).value('duScrollOffset', 50).value('duScrollDuration', 1000);
+//.value('duScrollOffset', 50)
+  }).value('duScrollDuration', 1000);

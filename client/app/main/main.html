@@ -16,8 +16,8 @@
     <div class="checkers">
         <!-- Checker pattern here -->
     </div>
-    <section offset="30">
-        <div class="container-fluid" id="section-5">
+    <section>
+        <div class="container-fluid padding-container" id="section-5">
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <img class="joinmailimg" src="../assets/images/joinmail.svg" alt="Join mailing list">
@@ -33,7 +33,7 @@
         </div>
     </section>
     <section>
-        <div class="container-fluid">
+        <div class="container-fluid padding-container">
             <div class="maillistform ">
                 <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
                     <div class="row">
@@ -74,7 +74,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <div class="welcome-text">
+                <div class="welcome-text padding-container">
                     <h1>Welcome</h1>
                     <p>Thanks for stopping by the web site of Long Island's premiere oldies dance band. At it's core, "Express" is a six piece band consisting of vocals, guitar, keyboard, percussion, sax and drums. We specialize in music covering the 40's, 50's, 60's, 70's, 80's and 90's.</p>
                     <p>Express has performed with such great groups as, "The Capris", "The Passions", "The Mystics", "Demensions", "Dion and the Belmonts", "The Drifters", and "The Coasters." Click around and discover how we can accommodate your next occasion.</p>
@@ -90,11 +90,11 @@
 <section>
     <div class="container-fluid" id="section-2">
         <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <img class="jukebox" src="../assets/images/jukebox.png" alt="JukeBox Image">
             </div>
-            <div class="col-xs-12">
-                <div class="about-text">
+            <div class="col-xs-12 col-sm-6">
+                <div class="about-text padding-container">
                     <h1>About</h1>
                     <div class="show-on-only-xs-devices">
                         <p>"Express" established it's roots back in the mid 1950's with the oldest of the Dana Brothers and the group's leader, Frank Dana ( rhythm guitar, lead vocals, and falsetto), playing in the group "Rusty and the Rock-A-Tones."<span ng-if="isCollapsed"> <a ng-click="toggleCollapsed()"> Read more...</a></span></p>
@@ -130,8 +130,8 @@
         <!-- End Row -->
     </div>
 </section>
-<section id="section-3">
-    <div class="container-fluid">
+<section>
+    <div class="container-fluid padding-container" id="section-3">
         <div class="row">
             <div class="col-xs-6">
                 <h1>See Us Live</h1>
@@ -161,46 +161,47 @@
             <div class="col-xs-offset-2 col-xs-4">
                 <img class="guitar" src="../assets/images/guitar.png" alt="Guitar Image">
             </div>
-
-      </div> <!-- End Row -->
-   </section>
-  <section id="section-4">
-    <div class="row">
-      <div class="col-xs-5">
-        <img class="mic" src="../assets/images/mic.png" alt="Microphone Image">
-      </div>
-      <div class="col-xs-offset-1 col-xs-6">
-        <div class="contact-text" ng-hide="messageReceived">
-          <h1>Contact Us</h1>
-          <form name="userEmail" ng-submit="userMail(userEmail.$valid)" novalidate>
-            <input class="expressinput" type="text" name="name"  placeholder="Name" ng-model="uemail.name" required><br>
-            <!--VALIDATE NAME-->
-               <p ng-show="userEmail.name.$invalid && !userEmail.name.$pristine" class="help-block" >Your name is required.</p> 
-               <!--END VALIDATE NAME-->
-            <input class="expressinput" type="text" name="email"  placeholder="Email" ng-model="uemail.address" required><br>
-             <!--VALIDATE EMAIL-->
-               <p ng-show="userEmail.email.$invalid && !userEmail.email.$pristine" class="help-block" >Your email is required.</p> 
-               <!--END VALIDATE EMAIL-->
-            <input class="expressinput" type="text" name="subject"  placeholder="Subject" ng-model="uemail.subject" required><br>
-              <!--VALIDATE SUBJECT-->
-               <p ng-show="userEmail.subject.$invalid && !userEmail.subject.$pristine" class="help-block" required>Your subject is required.</p> 
-               <!--END VALIDATE SUBJECT-->
-            <textarea ng-minlength="5" ng-maxlength="2000" rows="4" cols="50" name="message" placeholder="Message" ng-model="uemail.message" required> 
-            </textarea>
-            <p ng-show="userEmail.message.$invalid && userEmail.message.$dirty" class="help-block" >Your message is either too short or too long.</p> 
-            <input class="expressbutton contact_submit" ng-class="{ expressbuttonvalid : userEmail.$valid}" type="submit" value="Send" ng-disabled="userEmail.$invalid"> 
-          </form>  
         </div>
         <!-- End Row -->
-    </div>
 </section>
-
+<section id="section-4">
+    <div class="row">
+        <div class="col-xs-5">
+            <img class="mic" src="../assets/images/mic.png" alt="Microphone Image">
+        </div>
+        <div class="col-xs-offset-1 col-xs-6">
+            <div class="contact-text" ng-hide="messageReceived">
+                <h1>Contact Us</h1>
+                <form name="userEmail" ng-submit="userMail(userEmail.$valid)" novalidate>
+                    <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="uemail.name" required>
+                    <br>
+                    <!--VALIDATE NAME-->
+                    <p ng-show="userEmail.name.$invalid && !userEmail.name.$pristine" class="help-block">Your name is required.</p>
+                    <!--END VALIDATE NAME-->
+                    <input class="expressinput" type="text" name="email" placeholder="Email" ng-model="uemail.address" required>
+                    <br>
+                    <!--VALIDATE EMAIL-->
+                    <p ng-show="userEmail.email.$invalid && !userEmail.email.$pristine" class="help-block">Your email is required.</p>
+                    <!--END VALIDATE EMAIL-->
+                    <input class="expressinput" type="text" name="subject" placeholder="Subject" ng-model="uemail.subject" required>
+                    <br>
+                    <!--VALIDATE SUBJECT-->
+                    <p ng-show="userEmail.subject.$invalid && !userEmail.subject.$pristine" class="help-block" required>Your subject is required.</p>
+                    <!--END VALIDATE SUBJECT-->
+                    <textarea ng-minlength="5" ng-maxlength="2000" rows="4" cols="50" name="message" placeholder="Message" ng-model="uemail.message" required>
+                    </textarea>
+                    <p ng-show="userEmail.message.$invalid && userEmail.message.$dirty" class="help-block">Your message is either too short or too long.</p>
+                    <input class="expressbutton contact_submit" ng-class="{ expressbuttonvalid : userEmail.$valid}" type="submit" value="Send" ng-disabled="userEmail.$invalid">
+                </form>
+            </div>
+            <!-- End Row -->
+        </div>
+</section>
 <section>
     <div class="checkers">
         <!-- Checkers Pattern -->
     </div>
 </section>
-
 <footer class="footer">
     <div>
         <p>Copyright &#169; 2015 Express Band All rights reserved.</p>
