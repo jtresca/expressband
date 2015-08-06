@@ -40,7 +40,7 @@ exports.usermailer = function(req, res, next) {
          return res.send(500,{DUDE :'errorthing'});
       }
       else {
-         return res.send(201, {messageRecieved: true});
+         return res.send(201, {messageRecieved: true }); 
       }
       console.log('Message sent: ' + info.response);
       next();

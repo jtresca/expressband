@@ -127,9 +127,9 @@
                 </div>
             </div>
         </div>
-        <!-- End Row -->
     </div>
 </section>
+
 <section>
     <div class="container-fluid padding-container" id="section-3">
         <div class="row">
@@ -164,7 +164,7 @@
         </div>
         <!-- End Row -->
 </section>
-<section \>
+<section>
     <div class="row" id="section-4">
         <div class="col-xs-5">
             <img class="mic" src="../assets/images/mic.png" alt="Microphone Image">
@@ -194,15 +194,17 @@
                     <input class="expressbutton contact_submit" ng-class="{ expressbuttonvalid : userEmail.$valid}" type="submit" value="Send" ng-disabled="userEmail.$invalid">
                 </form>
             </div>
-            <!-- End Row -->
-        </div>
+            <p ng-show="messageReceived" class="confirm-block-contact">Thanks for contacting us! We will reply within 24 to 48 hours.</p>
+
+      </div> 
       </div>
-</section>
+   </section>   
 <section>
     <div class="checkers">
         <!-- Checkers Pattern -->
     </div>
 </section>
+
 <footer class="footer">
     <div>
         <p>Copyright &#169; 2015 Express Band All rights reserved.</p>

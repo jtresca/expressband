@@ -6,7 +6,8 @@ angular.module('expressbandApp', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'duScroll'
+  'duScroll',
+  'ngAnimate'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
