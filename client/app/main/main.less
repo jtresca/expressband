@@ -231,6 +231,10 @@ ul.nav.navbar-nav.navbar-right {
     padding-left: .5em;
 }
 
+.col-xs-12 .expressinput {
+    width: 48%;
+}
+
 ::-webkit-input-placeholder {
    color: @darkpink;
 }
@@ -255,11 +259,14 @@ ul.nav.navbar-nav.navbar-right {
     color: @darkpink;
     background: @basepink;
     padding: 0 1em 0 1em;
-
 }
+
+.col-xs-6 .expressbutton {
+    float: right;
+}
+
 .expressbutton:hover {
-        background: lighten(@basepink, 5%);
-        color: darken(@darkpink, 20%);
+        cursor: pointer;
     }
 
 .expressbuttonvalid {
@@ -269,7 +276,8 @@ ul.nav.navbar-nav.navbar-right {
 
 .car {
     margin-top: 10em;
-    width: 45em;
+    width: 100%;
+    float: right;
 }
 
 .welcome-text {
@@ -288,7 +296,7 @@ ul.nav.navbar-nav.navbar-right {
 }
 
 .guitar {
-    width: 35em;
+    width: 38em;
     right: 6em;
 }
 
@@ -471,7 +479,7 @@ textarea {
         padding: 0 30px 0 30px;
     }
     .expressinput {
-        width: 48%;
+        width: 100%;
     }
     #section-1 {
         margin-top: 12em;
@@ -483,7 +491,7 @@ textarea {
         opacity: 1;
         width: 100%;
     }
-// head was here
+
     #section-3 {
         margin-top: 12em;
         height: 700px;
@@ -505,9 +513,7 @@ textarea {
     .maillistform {
         margin-top: 60px;
     }
-    .expressinput {
-        width: 48%;
-    }
+    
     #section-1 {
         margin-top: 12em;
     }
@@ -520,9 +526,9 @@ textarea {
         height: 700px;
     }
     .guitar {
-        width: auto;
+        width: 30em;
         margin-top: 30px;
-        height: 800px;
+        // height: 800px;
     }
     .show-text {
         max-height: 700px;
