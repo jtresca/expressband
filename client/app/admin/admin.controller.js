@@ -76,12 +76,6 @@ angular.module('expressbandApp')
   
 
     $scope.adminLocation = function(location) {
-        
-        //set them all to false
-        $scope.adminMenu.forEach( function (arrayItem)
-        {
-          arrayItem.visible = false;
-        });
 
         $scope.isVisible = location.simplename;
         console.log($scope.isVisible, "set selected to true");
