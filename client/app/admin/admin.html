@@ -247,7 +247,27 @@
   </div>
   <br><br><br><br>
   <h1>View and edit existing shows</h1>
-  <h2 ng-repeat="showdate in showdates">{{showdate.venue}}</h2>
+  <ul class="list-group">
+      <li class="list-group-item" ng-repeat="showdate in showdates">
+        <strong><edit-in-place value="showdate.venue" class="text-muted"></edit-in-place></strong>
+         <br>
+          <edit-in-place value="showdate.street" class="text-muted"></edit-in-place>
+          <br>
+          <edit-in-place value="showdate.town" class="text-muted"></edit-in-place>
+          <br>
+          <edit-in-place value="showdate.zip" class="text-muted"></edit-in-place>
+          <br>
+          <edit-in-place value="showdate.date" class="text-muted"></edit-in-place>
+          <br>
+          <edit-in-place value="showdate.startTime" class="text-muted"></edit-in-place>-<edit-in-place value="showdate.endTime" class="text-muted"></edit-in-place>
+          <br>
+          <edit-in-place value="showdate.phone" class="text-muted"></edit-in-place>
+          <br>
+          <edit-in-place value="showdate.notes" class="text-muted"></edit-in-place>
+
+          <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+      </li>
+ </ul>
 </section>
 
 <section class="formcontainer" ng-show="isVisible == 'emailfans'">
