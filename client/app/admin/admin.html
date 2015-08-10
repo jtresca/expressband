@@ -248,24 +248,25 @@
   <br><br><br><br>
   <h1>View and edit existing shows</h1>
   <ul class="list-group">
+    {{showdate.updateMode}}
       <li class="list-group-item" ng-repeat="showdate in showdates">
-        <strong><edit-in-place value="showdate.venue" class="text-muted"></edit-in-place></strong>
-         <br>
-          <edit-in-place value="showdate.street" class="text-muted"></edit-in-place>
+          <strong ng-hide="showdate.updateMode">{{showdate.venue}}</strong><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.venue"><br>
+          <span ng-hide="showdate.updateMode"class="text-muted">{{showdate.street}}</span><input ng-show="showdate.updateMode"  type="text" name="editinput" ng-model="showdate.street"><br>
           <br>
-          <edit-in-place value="showdate.town" class="text-muted"></edit-in-place>
+          <span ng-hide="showdate.updateMode" class="text-muted">{{showdate.town}}</span><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.town"><br>
           <br>
-          <edit-in-place value="showdate.zip" class="text-muted"></edit-in-place>
+          <span ng-hide="showdate.updateMode"class="text-muted">{{showdate.zip}}</span><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.zip"><br>
           <br>
-          <edit-in-place value="showdate.date" class="text-muted"></edit-in-place>
+          <span ng-hide="showdate.updateMode" class="text-muted">{{showdate.date | date:'EEEE MMM d, y'}}</span><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.date"><br>
           <br>
-          <edit-in-place value="showdate.startTime" class="text-muted"></edit-in-place>-<edit-in-place value="showdate.endTime" class="text-muted"></edit-in-place>
+          <span ng-hide="showdate.updateMode" class="text-muted">{{showdate.startTime}}-{{showdate.endTime}}</span><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.startTime">-<input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.endTime"><br>
           <br>
-          <edit-in-place value="showdate.phone" class="text-muted"></edit-in-place>
+          <span ng-hide="showdate.updateMode" class="text-muted">{{showdate.phone | tel}}</span><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.phone"><br>
           <br>
-          <edit-in-place value="showdate.notes" class="text-muted"></edit-in-place>
-
-          <a ng-click="delete(user)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+          <span ng-hide="showdate.updateMode" class="text-muted">{{showdate.notes}}</span><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.notes"><br>
+          <a ng-click="deleteShow(showdate._id)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a><br><br>
+          <a ng-hide="showdate.updateMode" ng-click="setUpdateMode(showdate)" class="pencil"><span class="glyphicon glyphicon-pencil pull-right"></span></a>
+          <a ng-show="showdate.updateMode" ng-click="upDateRecord(showdate)" class="ok"><span class="glyphicon glyphicon-ok pull-right"></span></a><br>
       </li>
  </ul>
 </section>

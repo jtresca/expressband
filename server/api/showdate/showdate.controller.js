@@ -30,6 +30,7 @@ exports.create = function(req, res) {
 
 // Updates an existing showdate in the DB.
 exports.update = function(req, res) {
+  console.log("GOT TO THIS PLACE!");
   if(req.body._id) { delete req.body._id; }
   Showdate.findById(req.params.id, function (err, showdate) {
     if (err) { return handleError(res, err); }

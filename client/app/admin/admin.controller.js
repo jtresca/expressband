@@ -6,6 +6,9 @@ angular.module('expressbandApp')
   $scope.loginName = Auth.getCurrentUser().name;
   $scope.currencyVal;
   $scope.isVisible = 'adduser';
+  $scope.updateMode = false;
+  $scope.showdates = {};
+
 
   $scope.adminMenu = [{
       'title': 'Add/Remove Users',
@@ -25,26 +28,38 @@ angular.module('expressbandApp')
     ];
 
 
+
   //REFRESH PAGE TO PULL BACK ANY BINDINGS WE MISS IN INTIAL DIGEST CALL
-    $scope.refreshPage = function() {
-        // $route.reload();
-        $location.path('/admin');
+    // $scope.refreshPage = function() {
+    //     // $route.reload();
+    //     $location.path('/admin');
+    // }
+
+    $scope.waitRefresh = function() {
+      $scope.refreshShows();
     }
 
-    $timeout( function(){ $scope.refreshPage(); }, 50);
+    
   //END REFRESH PAGE
 
-
+    $scope.refreshShows = function() {
     $http.get('/api/showdates').success(function(dates) {
-      $scope.showdates = dates;
-    });
+        $scope.showdates = dates;
+        // $scope.showdates.forEach( function(arrayItem) {
+        //   arrayItem.updateMode = false;
+        // })
+        console.log("here is what I pulled", $scope.showdates)
+      });
+    }
    
+    $scope.refreshShows();
+    $scope.showdates.updateMode = false;
 
     // Use the User $resource to fetch all users
     $scope.adminlocation = $location.path();
     $scope.users = User.query();
 
-     $scope.register = function(form) {
+    $scope.register = function(form) {
       console.log("register activated", $scope.user.role);
       $scope.submitted = true;
 
@@ -76,9 +91,7 @@ angular.module('expressbandApp')
   
 
     $scope.adminLocation = function(location) {
-
         $scope.isVisible = location.simplename;
-        console.log($scope.isVisible, "set selected to true");
     }
 
     $scope.emailUser = function() {
@@ -96,6 +109,31 @@ angular.module('expressbandApp')
       });
     };
 
+    $scope.setUpdateMode = function(showdate) {
+       showdate.updateMode = true;
+       // console.log(showdate.updateMode);
+    }
+
+    $scope.upDateRecord = function(showdate) {
+      console.log('id is:', showdate);
+      $http.put('/api/showdates/' + showdate._id, { venue: showdate.venue, 
+          street: showdate.street, 
+          town: showdate.town,
+          zip: showdate.zip,
+          date: showdate.date, 
+          startTime: showdate.startTime,
+          endTime: showdate.endTime,
+          phone: showdate.phone, 
+          notes: showdate.notes });
+          $timeout( function(){ $scope.waitRefresh(); }, 50);
+    }
+
+    $scope.deleteShow = function(id) {
+      $http.delete('/api/showdates/' + id);
+      $scope.refreshShows();
+      console.log("show deleted!");
+    }
+
      $scope.addShow = function() {
       if($scope.newShow === '') {
         return;
@@ -111,8 +149,7 @@ angular.module('expressbandApp')
           phone: $scope.newShow.phone, 
           notes: $scope.newShow.notes });
        $scope.newShow = '';
-       console.log("TELL FILTER RAN ON SUBMIT:",telFilter($scope.newShow.phone));
-       $route.reload();
+       $scope.refreshShows();
     };
 
 
@@ -206,40 +243,5 @@ angular.module('expressbandApp').filter('tel', function() {
 
 //END TELEPHONE FILTERING
 
-angular.module('expressbandApp').directive( 'editInPlace', function() {
-  return {
-    restrict: 'E',
-    scope: { value: '=' },
-    template: '<span ng-click="edit()" ng-bind="value"></span><input ng-model="value"></input>',
-    link: function ( $scope, element, attrs ) {
-      // Let's get a reference to the input element, as we'll want to reference it.
-      var inputElement = angular.element( element.children()[1] );
-      
-      // This directive should have a set class so we can style it.
-      element.addClass( 'edit-in-place' );
-      
-      // Initially, we're not editing.
-      $scope.editing = false;
-      
-      // ng-click handler to activate edit-in-place
-      $scope.edit = function () {
-        $scope.editing = true;
-        
-        // We control display through a class on the directive itself. See the CSS.
-        element.addClass( 'active' );
-        
-        // And we must focus the element. 
-        // `angular.element()` provides a chainable array, like jQuery so to access a native DOM function, 
-        // we have to reference the first element in the array.
-        inputElement[0].focus();
-      };
-      
-      // When we leave the input, we're done editing.
-      inputElement.prop( 'onblur', function() {
-        $scope.editing = false;
-        element.removeClass( 'active' );
-      });
-    }
-  };
-});
+
 
