@@ -18,7 +18,7 @@ angular.module('expressbandApp')
     {
       'title': 'Book/Contact Us',
       'link': '#section-4',
-      'offset': -90
+      'offset': 0
     }
     ];
 
