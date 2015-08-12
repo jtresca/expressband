@@ -8,7 +8,7 @@ function handleError(res, err) {
 }
 
 exports.nodemailer = function(req, res, next) {
-  console.log("I got here!");
+  console.log("I got here!", req.body.recipients);
   var nodemailer = require('nodemailer');
 
   // create reusable transporter object using SMTP transport
@@ -26,8 +26,7 @@ exports.nodemailer = function(req, res, next) {
   // setup e-mail data with unicode symbols
   var mailOptions = {
       from: 'Joe Tresca calactyte@gmail.com', // sender address
-      // to: req.body.address, // list of receivers
-      bcc: ['calactyte@gmail.com','calactyte@mailcity.com'],
+      to: req.body.recipients, // list of receivers
       subject: req.body.subject, // Subject line
       text: req.body.message, // plaintext body
       html: '<b>'+req.body.message +'</b>' // html body

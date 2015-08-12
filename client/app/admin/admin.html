@@ -257,7 +257,7 @@
           <br>
           <span ng-hide="showdate.updateMode"class="text-muted">{{showdate.zip}}</span><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.zip"><br>
           <br>
-          <span ng-hide="showdate.updateMode" class="text-muted">{{showdate.date | date:'EEEE MMM d, y'}}</span><input ng-show="showdate.updateMode" type="date" name="editinput" ng-model="showdate.date"><br>
+          <span ng-hide="showdate.updateMode" class="text-muted">{{showdate.date | date:'EEEE MMM d, y'}}</span><input ng-show="showdate.updateMode" type="date" name="editinput" ng-model="showdate.date"format-date><br>
           <br>
           <span ng-hide="showdate.updateMode" class="text-muted">{{showdate.startTime}}-{{showdate.endTime}}</span><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.startTime"><input ng-show="showdate.updateMode" type="text" name="editinput" ng-model="showdate.endTime"><br>
           <br>
@@ -276,8 +276,6 @@
   <h1>Send e-mail to<br>mailing list</h1>
 
   <div>
-    <input class="expressinput" placeholder="Name" type="text" name="name" value="your name" ng-model="email.name"><br>
-    <input class="expressinput" placeholder="Email" type="text" name="mail" value="your email" ng-model="email.address"><br>
     <input class="expressinput" placeholder="Subject" type="text" name="name" value="your subject" ng-model="email.subject"><br>
     <input class="expressinput" placeholder="Comment" type="text" name="comment" value="your comment" size="50" ng-model="email.message"><br><br>
     <input class="expressbutton" type="submit" value="Send" ng-click="emailUser()">

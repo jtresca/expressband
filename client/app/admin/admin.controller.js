@@ -8,6 +8,7 @@ angular.module('expressbandApp')
   $scope.isVisible = 'adduser';
   $scope.updateMode = false;
   $scope.showdates = {};
+  $scope.mailinglist;
 
 
   $scope.adminMenu = [{
@@ -37,6 +38,7 @@ angular.module('expressbandApp')
 
     $scope.waitRefresh = function() {
       $scope.refreshShows();
+      $scope.refreshEmailList();
     }
 
     
@@ -51,7 +53,16 @@ angular.module('expressbandApp')
         console.log("here is what I pulled", $scope.showdates)
       });
     }
+
+    $scope.refreshEmailList = function() {
+      $http.get('/api/mailinglist').success(function(maillist) {
+          $scope.mailinglist = maillist;
+          $scope.mailinglist = _.map($scope.mailinglist, 'email');
+          console.log($scope.mailinglist);
+      });
+    }
    
+    $scope.refreshEmailList();
     $scope.refreshShows();
     $scope.showdates.updateMode = false;
 
@@ -95,7 +106,7 @@ angular.module('expressbandApp')
     }
 
     $scope.emailUser = function() {
-      $http.post('/api/email',{ address: $scope.email.address, name: $scope.email.name, subject: $scope.email.subject, message: $scope.email.message });
+      $http.post('/api/email',{ address: $scope.email.address, name: $scope.email.name, subject: $scope.email.subject, message: $scope.email.message, recipients: $scope.mailinglist });
       console.log("post succeeded")
     }
 
@@ -195,6 +206,19 @@ angular.module('expressbandApp').directive('phoneInput', function($filter, $brow
 
   };
 });
+
+angular.module('expressbandApp')
+.directive("formatDate", function(){
+  return {
+   require: 'ngModel',
+    link: function(scope, elem, attr, modelCtrl) {
+      modelCtrl.$formatters.push(function(modelValue){
+        return new Date(modelValue);
+      })
+    }
+  }
+});
+
 angular.module('expressbandApp').filter('tel', function() {
   return function(tel) {
 
