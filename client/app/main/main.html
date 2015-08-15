@@ -179,15 +179,15 @@
                     <!--VALIDATE NAME-->
                     <p ng-show="userEmail.name.$invalid && !userEmail.name.$pristine" class="help-block">Your name is required.</p>
                     <!--END VALIDATE NAME-->
-                    <input class="expressinput" type="text" name="email" placeholder="Email" ng-model="uemail.address" required>
+                    <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="uemail.address" required>
                     <br>
                     <!--VALIDATE EMAIL-->
-                    <p ng-show="userEmail.email.$invalid && !userEmail.email.$pristine" class="help-block">Your email is required.</p>
+                    <p ng-show="userEmail.email.$invalid && !userEmail.email.$pristine" class="help-block">Please enter a valid email address: <span class="validate-email">name@domain.com</span></p>
                     <!--END VALIDATE EMAIL-->
-                    <input class="expressinput" type="text" name="subject" placeholder="Subject" ng-model="uemail.subject" required>
+                    <input class="expressinput" minlength="3" maxlength="40" type="text" name="subject" placeholder="Subject" ng-model="uemail.subject" required>
                     <br>
                     <!--VALIDATE SUBJECT-->
-                    <p ng-show="userEmail.subject.$invalid && !userEmail.subject.$pristine" class="help-block" required>Your subject is required.</p>
+                    <p ng-show="userEmail.subject.$invalid && !userEmail.subject.$pristine" class="help-block" required>Please enter the subject of your message.</p>
                     <!--END VALIDATE SUBJECT-->
                     <textarea ng-minlength="5" ng-maxlength="2000" rows="4" cols="50" name="message" placeholder="Message" ng-model="uemail.message" required>
                     </textarea>
