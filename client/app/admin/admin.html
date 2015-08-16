@@ -255,7 +255,8 @@
 
   <div>
     <input class="expressinput" placeholder="Subject" type="text" name="name" value="your subject" ng-model="email.subject"><br>
-    <input class="expressinput" placeholder="Comment" type="text" name="comment" value="your comment" size="50" ng-model="email.message"><br><br>
+    <textarea ng-minlength="5" ng-maxlength="2000" rows="4" cols="50" name="message" placeholder="Message" ng-model="email.message" required>
+    </textarea><br><br>
     <input class="expressbutton" type="submit" value="Send" ng-click="emailUser()">
   </div>
 
