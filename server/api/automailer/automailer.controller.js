@@ -89,7 +89,7 @@ console.log("GARBAGE COLLECTION BEGIN", showdates);
 
                // setup e-mail data with unicode symbols
                 var mailOptions = {
-                    from: 'Express Band calactyte@gmail.com', // sender address
+                    from: 'Express Band mikedana.tresca88@gmail.com', // sender address
                     to: recipient.email, // list of receivers
                     subject: 'Upcoming Express Band Show Notification',//req.body.subject, // Subject line
                     // text: 'AUTOMAIL BODY',// req.body.message, // plaintext body
