@@ -35,7 +35,10 @@ exports.nodemailer = function(req, res) {
   // send mail with defined transport object
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
-          return console.log(error);
+        return console.log(error);
+      }
+      else {
+        return res.send(201, {messageRecieved: true}); 
       }
   });
 });

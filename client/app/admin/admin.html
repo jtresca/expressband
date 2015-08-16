@@ -253,13 +253,13 @@
   
   <h1>Send e-mail to<br>mailing list</h1>
 
-  <div>
+  <div ng-hide="receivedMessage">
     <input class="expressinput" placeholder="Subject" type="text" name="name" value="your subject" ng-model="email.subject"><br>
     <textarea ng-minlength="5" ng-maxlength="2000" rows="4" cols="50" name="message" placeholder="Message" ng-model="email.message" required>
     </textarea><br><br>
     <input class="expressbutton" type="submit" value="Send" ng-click="emailUser()">
   </div>
-
+   <p ng-show="receivedMessage" class="confirm-listsend">Your message has been sent.</p>
 </section>
 
 </div>

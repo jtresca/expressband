@@ -9,6 +9,7 @@ angular.module('expressbandApp')
   $scope.updateMode = false;
   $scope.showdates = {};
   $scope.mailinglist;
+  $scope.receivedMessage;
   
 
 
@@ -61,7 +62,6 @@ angular.module('expressbandApp')
       $http.get('/api/mailinglist').success(function(maillist) {
           $scope.mailinglist = maillist;
           $scope.mailinglist = _.map($scope.mailinglist, 'email');
-          console.log($scope.mailinglist);
       });
     }
    
@@ -110,8 +110,15 @@ angular.module('expressbandApp')
     }
 
     $scope.emailUser = function() {
-      $http.post('/api/email',{ address: $scope.email.address, name: $scope.email.name, subject: $scope.email.subject, message: $scope.email.message, recipients: $scope.mailinglist });
-      console.log("post succeeded")
+      $http.post('/api/email',{ address: $scope.email.address, name: $scope.email.name, subject: $scope.email.subject, message: $scope.email.message, recipients: $scope.mailinglist })
+       .success(function(data){
+            console.log('post succeeded-userMail');
+            $scope.receivedMessage = data.messageRecieved;
+        })
+        .error(function(data){
+           console.log(data.DUDE); 
+        });
+     
     }
 
 
@@ -154,7 +161,7 @@ angular.module('expressbandApp')
   $scope.newShow.endTime = $scope.newShow.endTime + $scope.newShow.endAmPm;
       console.log($scope.newShow.startTime, " :STARTTIME");
       console.log($scope.newShow.endTime, " :ENDTIME");
-      
+
       if($scope.newShow === '') {
         return;
       }
