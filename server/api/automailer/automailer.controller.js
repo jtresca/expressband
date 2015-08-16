@@ -9,6 +9,7 @@ var showdates;
 var mailinthelist;
 
 setTimeout(function(){
+  console.log("SERVER DATE IS: ",moment().format('llll'));
  
  //DATABASE CALL
  Showdate.find(function (err, showdate) {
