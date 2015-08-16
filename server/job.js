@@ -1,10 +1,10 @@
 /**
  * Main application file
  */
-
 'use strict';
 
-var mailinglist = require('./mailinglist/mailinglist.controller.js');
+
+// var mailinglist = require('./mailinglist/mailinglist.controller.js');
 
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -22,15 +22,18 @@ if(config.seedDB) { require('./config/seed'); }
 // Setup server
 var app = express();
 var server = require('http').createServer(app);
+var router = express.Router();
 require('./config/express')(app);
 require('./routes')(app);
+var autoMailer = require('./api/automailer/automailer.controller');
+
 
 // // Start server
 // server.listen(config.port, config.ip, function () {
 //   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
 // });
 
-// Expose app
+// //Expose app
 // exports = module.exports = app;
 
-mailinglist.automail();
+autoMailer.automail();

@@ -88,7 +88,7 @@ angular.module('expressbandApp')
           // $route.reload();
           // Auth.logout();
           $location.path('/admin');
-           $timeout( function(){ $scope.refreshPage(); }, 50);
+           $timeout( function(){ $scope.refreshPage(); }, 150);
         })
         .catch( function(err) {
           err = err.data;
@@ -139,7 +139,7 @@ angular.module('expressbandApp')
           endTime: showdate.endTime,
           phone: showdate.phone, 
           notes: showdate.notes });
-          $timeout( function(){ $scope.waitRefresh(); }, 50);
+          $timeout( function(){ $scope.waitRefresh(); }, 150);
     }
 
     $scope.deleteShow = function(id) {

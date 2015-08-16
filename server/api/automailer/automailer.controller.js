@@ -7,17 +7,21 @@ var Mailinglist = require('../mailinglist/mailinglist.model');
 var moment = require("moment");
 var showdates;
 var mailinthelist;
+
+setTimeout(function(){
  
  //DATABASE CALL
  Showdate.find(function (err, showdate) {
     return showdates = showdate;
   });
 
-    Mailinglist.find(function (err, maillist) {
+ Mailinglist.find(function (err, maillist) {
     // return mailinthelist = _.map(maillist, 'email');
     return mailinthelist = maillist;
   });
  //DATABASE CALL
+exports.automail();
+},3000)
 
 
 function handleError(res, err) {
@@ -25,7 +29,6 @@ function handleError(res, err) {
 }
 
 exports.automail = function() {
-
      // create reusable transporter object using SMTP transport
   var transporter = nodemailer.createTransport({
       service: 'Gmail',
@@ -35,8 +38,21 @@ exports.automail = function() {
       }
   });
 
+   //DATABASE CALL
+ Showdate.find(function (err, showdate) {
+    return showdates = showdate;
+  });
+
+ Mailinglist.find(function (err, maillist) {
+    // return mailinthelist = _.map(maillist, 'email');
+    return mailinthelist = maillist;
+  });
+ //DATABASE CALL
+
 //GARBAGE COLLECTION DELETES PAST SHOWS FROM THE DB
+console.log("GARBAGE COLLECTION BEGIN", showdates);
  _.each(showdates,function(dateofshow){
+            
              if (moment() > moment(dateofshow.date) ) {
               console.log(dateofshow);
               console.log("This right here is a list of all the show dates:", dateofshow.date);
