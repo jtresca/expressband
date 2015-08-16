@@ -9,6 +9,7 @@ angular.module('expressbandApp')
   $scope.updateMode = false;
   $scope.showdates = {};
   $scope.mailinglist;
+  
 
 
   $scope.adminMenu = [{
@@ -149,6 +150,11 @@ angular.module('expressbandApp')
     }
 
      $scope.addShow = function() {
+      $scope.newShow.startTime = $scope.newShow.startTime + $scope.newShow.startAmPm;
+  $scope.newShow.endTime = $scope.newShow.endTime + $scope.newShow.endAmPm;
+      console.log($scope.newShow.startTime, " :STARTTIME");
+      console.log($scope.newShow.endTime, " :ENDTIME");
+      
       if($scope.newShow === '') {
         return;
       }

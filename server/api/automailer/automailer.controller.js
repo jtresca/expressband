@@ -34,8 +34,8 @@ exports.automail = function() {
   var transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-          user: 'calactyte@gmail.com',
-          pass: 'newbaby2012'
+          user: 'mikedana.tresca88@gmail.com',
+          pass: 'sciencewonders'
       }
   });
 
