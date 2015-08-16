@@ -15,7 +15,7 @@ exports.nodemailer = function(req, res) {
   var transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-          user: 'mikedana.tresca88@gmail.com',
+          user: 'expressdanabrothers@gmail.com',
           pass: 'sciencewonders'
       }
   });
@@ -25,7 +25,7 @@ exports.nodemailer = function(req, res) {
   _.each(req.body.recipients, function(recipient) {
   // setup e-mail data with unicode symbols
   var mailOptions = {
-      from: 'Express Band mikedana.tresca88@gmail.com', // sender address
+      from: 'Express Band expressdanabrothers@gmail.com', // sender address
       to: recipient, // list of receivers
       subject: req.body.subject, // Subject line
       text: req.body.message, // plaintext body

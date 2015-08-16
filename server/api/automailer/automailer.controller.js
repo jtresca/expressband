@@ -34,7 +34,7 @@ exports.automail = function() {
   var transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-          user: 'mikedana.tresca88@gmail.com',
+          user: 'expressdanabrothers@gmail.com',
           pass: 'sciencewonders'
       }
   });
@@ -89,7 +89,7 @@ console.log("GARBAGE COLLECTION BEGIN", showdates);
 
                // setup e-mail data with unicode symbols
                 var mailOptions = {
-                    from: 'Express Band mikedana.tresca88@gmail.com', // sender address
+                    from: 'Express Band expressdanabrothers@gmail.com', // sender address
                     to: recipient.email, // list of receivers
                     subject: 'Upcoming Express Band Show Notification',//req.body.subject, // Subject line
                     // text: 'AUTOMAIL BODY',// req.body.message, // plaintext body
