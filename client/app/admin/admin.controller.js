@@ -177,6 +177,7 @@ angular.module('expressbandApp')
           notes: $scope.newShow.notes });
        $scope.newShow = '';
        $scope.refreshShows();
+       $timeout( function(){ $scope.refreshShows(); }, 150);
     };
 
 
