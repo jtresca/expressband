@@ -10,6 +10,7 @@ angular.module('expressbandApp')
   $scope.showdates = {};
   $scope.mailinglist;
   $scope.receivedMessage;
+  $scope.fanlist;
   
 
 
@@ -27,26 +28,30 @@ angular.module('expressbandApp')
       'title': 'Email Fan List',
       'visible': false,
       'simplename': "emailfans"
-    }
-    ];
+    },
+    {
+      'title': 'View Fan List',
+      'visible': false,
+      'simplename': "viewfans"
+    }];
 
 
 
 
     //REFRESH PAGE TO PULL BACK ANY BINDINGS WE MISS IN INTIAL DIGEST CALL
     $scope.refreshPage = function() {
-        $route.reload();
-        console.log("REFRESH EXECUTED");
-        $location.path('/admin');
+      $scope.loginName = Auth.getCurrentUser().name;
+      $scope.users = User.query();
+        // $route.reload();
+        // console.log("REFRESH EXECUTED");
+        // $location.path('/admin');
     }
+  // //END REFRESH PAGE
 
-   
-  //END REFRESH PAGE
-
-    $scope.waitRefresh = function() {
-      $scope.refreshShows();
-      $scope.refreshEmailList();
-    }
+  //   $scope.waitRefresh = function() {
+  //     $scope.refreshShows();
+  //     $scope.refreshEmailList();
+  //   }
 
     
   //END REFRESH PAGE
@@ -61,9 +66,12 @@ angular.module('expressbandApp')
     $scope.refreshEmailList = function() {
       $http.get('/api/mailinglist').success(function(maillist) {
           $scope.mailinglist = maillist;
+          $scope.fanlist = maillist;
           $scope.mailinglist = _.map($scope.mailinglist, 'email');
+          console.log("EMAILS: ",$scope.mailinglist);
       });
     }
+
    
     $scope.refreshEmailList();
     $scope.refreshShows();
@@ -88,8 +96,10 @@ angular.module('expressbandApp')
           // Account created, redirect to home
           // $route.reload();
           // Auth.logout();
-          $location.path('/admin');
-           $timeout( function(){ $scope.refreshPage(); }, 150);
+          $scope.users = User.query();
+          // $location.path('/admin');
+
+           $timeout( function(){ $scope.refreshPage(); }, 500);
         })
         .catch( function(err) {
           err = err.data;
@@ -121,7 +131,6 @@ angular.module('expressbandApp')
      
     }
 
-
     $scope.delete = function(user) {
       User.remove({ id: user._id });
       angular.forEach($scope.users, function(u, i) {
@@ -133,7 +142,6 @@ angular.module('expressbandApp')
 
     $scope.setUpdateMode = function(showdate) {
        showdate.updateMode = true;
-       // console.log(showdate.updateMode);
     }
 
     $scope.upDateRecord = function(showdate) {
@@ -146,14 +154,23 @@ angular.module('expressbandApp')
           startTime: showdate.startTime,
           endTime: showdate.endTime,
           phone: showdate.phone, 
-          notes: showdate.notes });
-          $timeout( function(){ $scope.waitRefresh(); }, 150);
+          notes: showdate.notes })
+      .success(function(){
+          $scope.refreshShows();
+      })
+          // $timeout( function(){ $scope.waitRefresh(); }, 500);
     }
 
-    $scope.deleteShow = function(id) {
-      $http.delete('/api/showdates/' + id);
+    $scope.deleteShow = function(_id) {
+      $http.delete('/api/showdates/' + _id);
       $scope.refreshShows();
       console.log("show deleted!");
+    }
+
+    $scope.deletefanEmail = function(_id) {
+      $http.delete('/api/mailinglist/' + _id).success(function(){
+        $scope.refreshEmailList();
+      })
     }
 
      $scope.addShow = function() {
@@ -177,7 +194,7 @@ angular.module('expressbandApp')
           notes: $scope.newShow.notes });
        $scope.newShow = '';
        $scope.refreshShows();
-       $timeout( function(){ $scope.refreshShows(); }, 150);
+       $timeout( function(){ $scope.refreshShows(); }, 500);
     };
 
 
