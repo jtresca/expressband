@@ -11,6 +11,8 @@ angular.module('expressbandApp')
   $scope.mailinglist;
   $scope.receivedMessage;
   $scope.fanlist;
+  $scope.emailCount;
+  $scope.listJoinSuccess;
   
 
 
@@ -68,7 +70,8 @@ angular.module('expressbandApp')
           $scope.mailinglist = maillist;
           $scope.fanlist = maillist;
           $scope.mailinglist = _.map($scope.mailinglist, 'email');
-          console.log("EMAILS: ",$scope.mailinglist);
+          $scope.emailCount = $scope.mailinglist.length;
+          console.log("EMAILS: ",$scope.mailinglist.length);
       });
     }
 
@@ -116,6 +119,7 @@ angular.module('expressbandApp')
   
 
     $scope.adminLocation = function(location) {
+      $scope.$apply();
         $scope.isVisible = location.simplename;
     }
 
@@ -172,6 +176,26 @@ angular.module('expressbandApp')
         $scope.refreshEmailList();
       })
     }
+
+     $scope.listJoin = function(isValid) {
+            $scope.emailExists = false;
+
+
+            $http.post('/api/mailinglist',{ name: $scope.maillist.name , email: $scope.maillist.email})
+            .success(function(data) {
+                console.log('add email to db', data.success);
+                $scope.listJoinSuccess = data.success;
+                $timeout( function(){ $scope.listJoinSuccess = false }, 3000);
+                $scope.refreshEmailList();
+            })
+            .error(function(data) {
+                console.log ('the email exists:',data.exists);
+                 $scope.emailExists = data.exists;
+                 console.log($scope.emailExists);
+            });
+            // $scope.$apply();
+  
+     };
 
      $scope.addShow = function() {
       $scope.newShow.startTime = $scope.newShow.startTime + $scope.newShow.startAmPm;

@@ -62,6 +62,7 @@ angular.module('expressbandApp')
                  $scope.emailExists = data.exists;
                  console.log($scope.emailExists);
             });
+            $scope.$apply();
   
      };
 

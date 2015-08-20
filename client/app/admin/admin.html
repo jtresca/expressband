@@ -263,7 +263,26 @@
 </section>
 
 <section ng-show="isVisible == 'viewfans'">
-  <h1>View email list</h1>
+  <h1>View email list</h1><br>
+                            <p ng-show="listJoinSuccess" class="confirm-block">Successfully added!</p>
+                            <form name="mailingList" ng-submit="listJoin(mailingList.$valid)" novalidate>
+                            <input class="expressinput" type="text" name="name" placeholder="Name" ng-model="maillist.name" required>
+                            <br>
+                            <!--VALIDATE NAME-->
+                            <p ng-show="mailingList.name.$invalid && !mailingList.name.$pristine" class="help-block">Your name is required.</p>
+                            <!--END VALIDATE NAME-->
+                            <!--  </div> -->
+                            <!-- <div class="col-xs-12"> -->
+                            <input class="expressinput" type="email" name="email" placeholder="Email" ng-model="maillist.email" required>
+                            <br>
+                            <!--VALIDATE EMAIL-->
+                            <p ng-show="mailingList.email.$invalid && mailingList.email.$dirty" class="help-block">Your email is invalid.</p>
+                            <p ng-show="emailExists" class="help-block">Your email is already in use.</p>
+                            <input class="expressbutton" ng-class="{ expressbuttonvalid : mailingList.$valid}" type="submit" value="Send" ng-disabled="mailingList.$invalid">
+                            </form>
+                            <br><br>
+
+  <span>TOTAL EMAIL COUNT: {{emailCount}}</span><br><br>
    <ul class="list-group">
       <li class="list-group-item" ng-repeat="fan in fanlist">
           <strong>{{fan.name}}</strong><br>
