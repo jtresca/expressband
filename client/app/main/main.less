@@ -83,13 +83,18 @@ hr {
 
 html {
     font-size: 14px;
-    overflow-x: hidden;
 }
 
 body {
     background: url("../assets/images/bg_paper.jpg");
     background-repeat: repeat-x repeat-y;
+
 }
+//HUGELY IMPORTANT********BOOTSTRAP LIKES TO ADD MARGIN ON THE RIGHT HAND SIDE FOR BELOW 400px width, SO BASICALLY MOBILE DEVICES--FIX BELOW
+html, body {
+  overflow-x: hidden;
+}
+//HUGELY IMPORTANT!!!!
 
 nav {
     top: 0;
