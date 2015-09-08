@@ -31,11 +31,18 @@ function handleError(res, err) {
 
 exports.automail = function() {
      // create reusable transporter object using SMTP transport
-  var transporter = nodemailer.createTransport({
-      service: 'Gmail',
+  // var transporter = nodemailer.createTransport({
+  //     service: 'Gmail',
+  //     auth: {
+  //         user: 'expressdanabrothers@gmail.com',
+  //         pass: 'sciencewonders'
+  //     }
+  // });
+     var transporter = nodemailer.createTransport({
+      service: 'hotmail',
       auth: {
-          user: 'expressdanabrothers@gmail.com',
-          pass: 'sciencewonders'
+          user: 'expressdanabrothers@outlook.com',
+          pass: 'Sciencewonders1'
       }
   });
 
@@ -89,7 +96,7 @@ console.log("GARBAGE COLLECTION BEGIN", showdates);
 
                // setup e-mail data with unicode symbols
                 var mailOptions = {
-                    from: 'Express Band expressdanabrothers@gmail.com', // sender address
+                    from: 'Express Band expressdanabrothers@outlook.com', // sender address
                     to: recipient.email, // list of receivers
                     subject: 'Upcoming Express Band Show Notification',//req.body.subject, // Subject line
                     // text: 'AUTOMAIL BODY',// req.body.message, // plaintext body

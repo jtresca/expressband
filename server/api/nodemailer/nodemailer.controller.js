@@ -12,11 +12,19 @@ exports.nodemailer = function(req, res) {
   var nodemailer = require('nodemailer');
 
   // create reusable transporter object using SMTP transport
-  var transporter = nodemailer.createTransport({
-      service: 'Gmail',
+  // var transporter = nodemailer.createTransport({
+  //     service: 'Gmail',
+  //     auth: {
+  //         user: 'expressdanabrothers@gmail.com',
+  //         pass: 'sciencewonders'
+  //     }
+  // });
+
+    var transporter = nodemailer.createTransport({
+      service: 'hotmail',
       auth: {
-          user: 'expressdanabrothers@gmail.com',
-          pass: 'sciencewonders'
+          user: 'expressdanabrothers@outlook.com',
+          pass: 'Sciencewonders1'
       }
   });
 
@@ -25,10 +33,10 @@ exports.nodemailer = function(req, res) {
   _.each(req.body.recipients, function(recipient) {
   // setup e-mail data with unicode symbols
   var mailOptions = {
-      from: 'Express Band expressdanabrothers@gmail.com', // sender address
+      from: 'Express Band expressdanabrothers@outlook.com', // sender address
       to: recipient, // list of receivers
       subject: req.body.subject, // Subject line
-      text: req.body.message, // plaintext body
+      // text: req.body.message, // plaintext body
       html: '<b>'+req.body.message +'</b>' // html body
   };
 
