@@ -47,9 +47,6 @@ angular.module('expressbandApp')
     $scope.refreshShows = function() {
     $http.get('/api/showdates').success(function(dates) {
         $scope.showdates = dates;
-        // $scope.showdates.forEach( function(arrayItem) {
-        //   arrayItem.updateMode = false;
-        // })
         console.log("here is what I pulled", $scope.showdates)
       });
     }
@@ -83,9 +80,9 @@ angular.module('expressbandApp')
         })
         .then( function() {
           // Account created, redirect to home
-          $route.reload();
-          Auth.logout();
-          $location.path('/');
+          // $route.reload();
+          // Auth.logout();
+          $location.path('/admin');
         })
         .catch( function(err) {
           err = err.data;
