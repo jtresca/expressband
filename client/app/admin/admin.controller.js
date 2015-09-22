@@ -30,11 +30,16 @@ angular.module('expressbandApp')
 
 
 
-  //REFRESH PAGE TO PULL BACK ANY BINDINGS WE MISS IN INTIAL DIGEST CALL
-    // $scope.refreshPage = function() {
-    //     // $route.reload();
-    //     $location.path('/admin');
-    // }
+
+    //REFRESH PAGE TO PULL BACK ANY BINDINGS WE MISS IN INTIAL DIGEST CALL
+    $scope.refreshPage = function() {
+        $route.reload();
+        console.log("REFRESH EXECUTED");
+        $location.path('/admin');
+    }
+
+   
+  //END REFRESH PAGE
 
     $scope.waitRefresh = function() {
       $scope.refreshShows();
@@ -83,6 +88,7 @@ angular.module('expressbandApp')
           // $route.reload();
           // Auth.logout();
           $location.path('/admin');
+           $timeout( function(){ $scope.refreshPage(); }, 50);
         })
         .catch( function(err) {
           err = err.data;
