@@ -25,7 +25,7 @@ exports.nodemailer = function(req, res, next) {
   _.each(req.body.recipients, function(recipient) {
   // setup e-mail data with unicode symbols
   var mailOptions = {
-      from: 'ExpressBand calactyte@gmail.com', // sender address
+      from: 'Express Band calactyte@gmail.com', // sender address
       to: recipient, // list of receivers
       subject: req.body.subject, // Subject line
       text: req.body.message, // plaintext body

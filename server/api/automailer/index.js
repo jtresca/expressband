@@ -7,6 +7,7 @@ var router = express.Router();
 
 
 router.get('/', controller.automail);
+router.get('/:id', controller.automail);
 
 
 module.exports = router;
