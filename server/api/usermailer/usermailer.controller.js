@@ -32,7 +32,7 @@ exports.usermailer = function(req, res, next) {
 
   // setup e-mail data with unicode symbols
   var mailOptions = {
-      from: req.body.name + req.body.address, // sender address
+      from: req.body.address, // sender address
       to: 'mikedana.tresca88@gmail.com', // list of receivers
       // bcc: ['calactyte@gmail.com','calactyte@mailcity.com'],
       subject: req.body.subject, // Subject line
